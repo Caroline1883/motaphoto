@@ -24,15 +24,19 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 0px 146px 0px 146px;
+    height: 80px;
     align-items: center;
+    box-shadow: 0px 4px 4px $shadow;
     @media (max-width: $mobile-breakpoint) {
         padding: 0px 40px 0px 26px;
+        height: 72px;
       }
 
-    .custom-logo-link, .logo{
+    img{
         width: 216px;
         @media (max-width: $mobile-breakpoint) {
             width: 138px;
+            height: 9px;
           }
     }
 
