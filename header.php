@@ -29,11 +29,11 @@
         </div>
         <div class="mobile-menu">
            <div class="hamburger">☰</div>
-           <div class="cross">&#10006</div>
+           <div class="cross inactive">&#10006</div>
         </div>
     </header>
 
-    <nav class="fullscreen">
+    <nav class="fullscreen inactive">
         <?php
             wp_nav_menu([
                 'theme_location' => 'main-menu',

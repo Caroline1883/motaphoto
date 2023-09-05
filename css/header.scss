@@ -5,6 +5,10 @@
     display: block;
 }
 
+.inactive{
+    display: none;
+}
+
 /* Header container */
 
 ul{
@@ -66,10 +70,6 @@ header {
             display: none;
           }
     }
- }
-
- .fullscreen{
-    display: none;
  }
 
  .fullscreen-menu{
