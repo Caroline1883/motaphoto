@@ -8,11 +8,15 @@ function mota_enqueue_styles() {
 }
 
 
-// Menu
-function register_menu() {
-    register_nav_menu('main-menu', __('Menu Principal', 'motaphoto'));
+function register_menus(){
+    register_nav_menus(
+    array(
+        'main-menu' => __('Menu Principal', 'motaphoto'),
+        'footer-menu' => __( 'Menu Footer', 'motaphoto' ),
+    )
+    );
 }
-add_action('after_setup_theme', 'register_menu');
+add_action( 'init', 'register_menus' );
 
 // Adds
 add_theme_support( 
