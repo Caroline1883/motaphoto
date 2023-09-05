@@ -1,3 +1,92 @@
 /* Fonts */
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Poppins'),
+         url('../assets/fonts/poppins/Poppins-Light.woff') format('woff'),
+         url('../assets/fonts/poppins/Poppins-Light.woff2') format('woff2'),
+  }
 
+@font-face {
+    font-family: 'SpaceMono';
+    font-style: italic;
+    font-weight: 700;
+    src: local('SpaceMono'),
+         url('../assets/fonts/spacemono/SpaceMono-BoldItalic.woff') format('woff'),
+         url('../assets/fonts/spacemono/SpaceMono-BoldItalic.woff2') format('woff2'),
+  }
+
+@font-face {
+    font-family: 'SpaceMono';
+    font-style: italic;
+    font-weight: 400;
+    src: local('SpaceMono'),
+         url('../assets/fonts/spacemono/SpaceMono-Italic.woff') format('woff'),
+         url('../assets/fonts/spacemono/SpaceMono-Italic.woff2') format('woff2'),
+  }
+
+@font-face {
+    font-family: 'SpaceMono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('SpaceMono'),
+         url('../assets/fonts/spacemono/SpaceMono-Regular.woff') format('woff'),
+         url('../assets/fonts/spacemono/SpaceMono-Regular.woff2') format('woff2'),
+  }
+
+/* Global variables */
+$mobile-breakpoint: 768px;
+
+/* Global style */
+
+h1, h2, h3, h4 {
+    font-family: 'SpaceMono';
+    text-transform: uppercase;
+  }
+  
+  h1, h2 {
+    font-style: italic;
+  }
+  
+  h1 {
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 142px;
+  
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 27px;
+    }
+  }
+  
+  h2 {
+    font-size: 66px;
+    line-height: 58px;
+    font-weight: 400;
+
+    @media (max-width: $mobile-breakpoint) {
+        font-size: 46px;
+      }
+  }
+  
+  h3, h4 {
+    font-style: normal;
+  }
+  
+  h3 {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+  
+  h4 {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+  }
+
+p{
+    font-family: 'Poppins';
+    font-size: 14px;
+}
 
