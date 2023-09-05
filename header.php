@@ -6,13 +6,21 @@
     <title>Nathalie Mota Photographe Event</title>
 </head>
 <body>
-
-<nav>
-<?php
-wp_nav_menu([
-    'theme_location' => 'main-menu',
-    'container'      => false, // without WP container
-    'walker'         => new Mota_Walker_Nav_Menu()
-]);
-?>
-</nav>
+    <header>
+        <div>
+            <?php if(has_custom_logo()) { ?>
+                <?php echo get_custom_logo(); ?>
+            <?php } else { ?>
+                <a href="<?php echo home_url() ?>"><img class="logo" src="<?php echo get_stylesheet_directory_uri() . '/img/logo.png'; ?>" alt="Logo" id="logo"></a>
+            <?php } ?>
+        </div>
+        <nav>
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'main-menu',
+                'container'      => false, // without WP container
+                'walker'         => new Mota_Walker_Nav_Menu()
+            ]);
+            ?>
+        </nav>
+    </header>
