@@ -23,7 +23,6 @@
   font-weight: 400;
   src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-Regular.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-Regular.woff2") format("woff2");
 }
-/* Global variables */
 /* Global style */
 h1, h2, h3, h4 {
   font-family: "SpaceMono";

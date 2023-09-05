@@ -1,3 +1,5 @@
+@import 'variables';
+
 /* Fonts */
 @font-face {
     font-family: 'Poppins';
@@ -34,9 +36,6 @@
          url('../assets/fonts/spacemono/SpaceMono-Regular.woff') format('woff'),
          url('../assets/fonts/spacemono/SpaceMono-Regular.woff2') format('woff2'),
   }
-
-/* Global variables */
-$mobile-breakpoint: 768px;
 
 /* Global style */
 

@@ -1,0 +1,44 @@
+/* Styles for the header */
+@import 'variables';
+
+/* Header container */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 146px 0px 146px;
+    align-items: center;
+    @media (max-width: $mobile-breakpoint) {
+        padding: 0px 40px 0px 26px;
+      }
+
+    .custom-logo-link, .logo{
+        width: 216px;
+        @media (max-width: $mobile-breakpoint) {
+            width: 138px;
+          }
+    }
+    
+    ul{
+        display: flex;
+        justify-content: space-around;
+        gap: 45px;
+        list-style-type: none;
+        
+        a{
+            font-family: 'SpaceMono';
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-style: normal;
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+        }
+
+    }
+
+    
+
+    }
+
+  

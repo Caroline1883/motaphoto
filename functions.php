@@ -2,6 +2,7 @@
 require_once get_template_directory() . '/menus.php';
 function mota_enqueue_styles() {
         wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css');
+        wp_enqueue_style('header', get_template_directory_uri() . '/css/header.css');
         wp_enqueue_script('js', get_template_directory_uri() . '/js/script.js', array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'mota_enqueue_styles');
