@@ -24,8 +24,7 @@
 		</div>
 		<div class="popup-form">
 		<?php
-		echo "ici le formulaire"
-		// echo do_shortcode('[contact-form-7 id="910" title="x"]');
+		echo do_shortcode('[contact-form-7 id="600df83" title="Contact"]');
 		?>
 	</div>
 </div>
