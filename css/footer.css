@@ -1,0 +1,23 @@
+/* Styles for the footer */
+/* Footer container */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: solid 1px black;
+}
+footer ul {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 86px;
+}
+@media (max-width: 768px) {
+  footer ul {
+    height: 208px;
+    flex-direction: column;
+    gap: 24px;
+  }
+}/*# sourceMappingURL=footer.css.map */
