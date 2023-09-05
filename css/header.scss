@@ -27,8 +27,9 @@ header {
     height: 80px;
     align-items: center;
     box-shadow: 0px 4px 4px $shadow;
+    z-index: 100;
     @media (max-width: $mobile-breakpoint) {
-        padding: 0px 40px 0px 26px;
+        padding: 0px 40px 0px 40px;
         height: 72px;
       }
 
@@ -57,6 +58,7 @@ header {
 
     .mobile-menu{
         display: none;
+        font-size: 21px;
         @media (max-width: $mobile-breakpoint) {
             display: block;
           }
@@ -66,8 +68,11 @@ header {
     }
  }
 
+ .fullscreen{
+    display: none;
+ }
+
  .fullscreen-menu{
-    // display: none;
     display: flex;
     flex-direction: column;
     justify-content: center;

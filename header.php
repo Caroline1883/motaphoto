@@ -28,12 +28,12 @@
             </nav>
         </div>
         <div class="mobile-menu">
-           <div class="mobile-menu__toggle">☰</div>
-           <div class="mobile-menu__toggle--closed">&#10006</div>
+           <div class="hamburger">☰</div>
+           <div class="cross">&#10006</div>
         </div>
     </header>
 
-    <nav>
+    <nav class="fullscreen">
         <?php
             wp_nav_menu([
                 'theme_location' => 'main-menu',
