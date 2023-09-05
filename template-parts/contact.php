@@ -17,25 +17,15 @@
 ?>
 
 <div class="popup-overlay">
-	<div class="popup-salon">
+	<div class="popup-contact">
 		<div class="popup-header">
-			<h3>coucou</h3>
+			<img src="<?php echo get_template_directory_uri() . '/assets/img/contactheader.svg'; ?>" alt="contact contact contact">
 			<span class="popup-close"><i class="fa fa-times"></i></span>
 		</div>
-		
-		<div class="popup-details">
-			<div class="popup-address">
-				<p><b>Le lieu</b></p>
-				<a class="popup-link" href="#" target="_blank">Voir sur Google Maps</a>
-			</div>
-			<div class="popup-address">
-				<p><b>La date</b></p>
-			</div>
-		</div>
-		<p class="popup-informations">Vous souhaitez plus d'informations concernant cet événement ?</p>
+		<div class="popup-form">
 		<?php
-		// On insère le formulaire de demandes de renseignements
-		// echo do_shortcode('[contact-form-7 id="910" title="Formulaire salon New York"]');
+		echo "ici le formulaire"
+		// echo do_shortcode('[contact-form-7 id="910" title="x"]');
 		?>
 	</div>
 </div>
