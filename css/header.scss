@@ -1,7 +1,25 @@
 /* Styles for the header */
 @import 'variables';
 
+.active{
+    display: block;
+}
+
 /* Header container */
+
+ul{
+    list-style-type: none;
+
+    a{
+        font-family: 'SpaceMono';
+        text-transform: uppercase;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 400;
+    } 
+
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -17,28 +35,50 @@ header {
             width: 138px;
           }
     }
-    
-    ul{
+
+    .desktop-menu{
         display: flex;
         justify-content: space-around;
         gap: 45px;
-        list-style-type: none;
-        
         a{
-            font-family: 'SpaceMono';
             color: black;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-style: normal;
             font-size: 14px;
             line-height: 21px;
-            font-weight: 400;
-        }
-
+            }  
+        
+        @media (max-width: $mobile-breakpoint) {
+            display: none;
+          }
     }
 
-    
-
+    .mobile-menu{
+        display: none;
+        @media (max-width: $mobile-breakpoint) {
+            display: block;
+          }
+          .mobile-menu__toggle--closed{
+            display: none;
+          }
     }
+ }
+
+ .fullscreen-menu{
+    // display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    background-color: $primary-red;
+    height: 100vh;
+    a{
+        color: white;
+        font-size: 44px;
+        line-height: 65px;
+        }  
+}
+
+
+
 
   

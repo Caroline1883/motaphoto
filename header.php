@@ -15,13 +15,32 @@
                 <a href="<?php echo home_url() ?>"><img class="logo" src="<?php echo get_stylesheet_directory_uri() . 'assets/img/logo.png'; ?>" alt="Logo" id="logo"></a>
             <?php } ?>
         </div>
-        <nav>
-            <?php
+        <div class="menu">
+            <nav>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'main-menu',
+                    'container'      => false, // without WP container
+                    'walker'         => new Mota_Walker_Nav_Menu(),
+                    'menu_class'     => 'desktop-menu',    
+                ]);
+                ?>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+           <div class="mobile-menu__toggle">☰</div>
+           <div class="mobile-menu__toggle--closed">&#10006</div>
+        </div>
+    </header>
+
+    <nav>
+        <?php
             wp_nav_menu([
                 'theme_location' => 'main-menu',
                 'container'      => false, // without WP container
-                'walker'         => new Mota_Walker_Nav_Menu()
-            ]);
+                'walker'         => new Mota_Walker_Nav_Menu(),
+                'menu_class'     => 'fullscreen-menu',    
+                ]);
             ?>
-        </nav>
-    </header>
+    </nav>
+       
