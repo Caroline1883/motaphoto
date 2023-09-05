@@ -9,6 +9,18 @@
     display: none;
 }
 
+/* Animations */
+@keyframes opacity{
+    from{
+        opacity: 0;
+        transform: translateY(-80vh)
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
 /* Header container */
 
 ul{
@@ -25,6 +37,7 @@ ul{
 }
 
 header {
+    position: sticky;
     display: flex;
     justify-content: space-between;
     padding: 0px 146px 0px 146px;
@@ -73,6 +86,7 @@ header {
  }
 
  .fullscreen-menu{
+    position: sticky;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,6 +94,7 @@ header {
     gap: 18px;
     background-color: $primary-red;
     height: 100vh;
+    animation: opacity 1s ease-in-out;
     a{
         color: white;
         font-size: 44px;
