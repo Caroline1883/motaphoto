@@ -19,6 +19,16 @@ function register_menus(){
 }
 add_action( 'init', 'register_menus' );
 
+add_filter( 'wp_nav_menu_items', 'add_contact_to_main_menu', 10, 2);
+function add_contact_to_main_menu( $items, $args ) {
+if ($args->theme_location==='main-menu') {
+        $items_array[] = $items;
+        array_splice($items_array, 1, 0, '<li id="contact" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a class="contact" href="#" itemprop="url"><div itemprop="name" class="menu-item">Contact</div></a></li>'); 
+        $items = implode('', $items_array);
+}   
+return $items;
+}
+
 // Adds
 add_theme_support( 
     'custom-logo',
