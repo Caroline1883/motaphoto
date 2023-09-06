@@ -29,19 +29,20 @@ menuLis.forEach(menuLi => {
 
 // Modal Contact
 
-function isMobileScreen() {
-    return window.innerWidth <= 768; 
-  }
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
 const modalOverlay = document.querySelector('.popup-overlay');
 const menuContact = document.querySelectorAll('.contact');
+const fullScreen = document.querySelector('.fullscreen');
+const menuCross = document.querySelector('.cross');
+const menuToggle = document.querySelector('.hamburger');
 menuContact.forEach(item => {
     item.onclick = function() {
         modalOverlay.style.display = "block";
-        console.log("ok");
+        fullScreen.classList.add('inactive');
+        menuCross.classList.add('inactive');
+        menuToggle.classList.remove('inactive');
+        
     }
 })
 console.log(menuContact);
