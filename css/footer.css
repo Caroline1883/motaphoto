@@ -46,9 +46,14 @@ footer ul {
   width: 597px;
   height: 769px;
   border: solid 5px black;
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 90%;
+  max-height: 90%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
 }
 @media (max-width: 768px) {
   .popup-contact {
@@ -56,11 +61,6 @@ footer ul {
     height: 583px;
     border-width: 3px;
   }
-}
-.popup-contact .popup-header {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .popup-contact .popup-header img {
   display: block;
@@ -77,4 +77,56 @@ footer ul {
   border: 1px solid black;
   padding: 5px;
   border-radius: 4px;
+}
+.popup-contact form {
+  width: 263px;
+  gap: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .popup-contact form {
+    width: 190px;
+    gap: 14px;
+  }
+}
+.popup-contact form p {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.popup-contact form input {
+  line-height: 40px;
+  border: solid 1px #B8BBC2;
+  border-radius: 8px;
+  max-width: 100%;
+}
+.popup-contact form .wpcf7-submit {
+  width: 263px;
+  height: 50px;
+  background-color: #D8D8D8;
+  font-family: "SpaceMono";
+  font-weight: 400;
+  font-size: 12px;
+  border-radius: 2px;
+  border: none;
+}
+@media (max-width: 768px) {
+  .popup-contact form .wpcf7-submit {
+    width: 190px;
+  }
+}
+.popup-contact form textarea {
+  border: solid 1px #B8BBC2;
+  border-radius: 8px;
+  width: 263px;
+  height: 210px;
+}
+@media (max-width: 768px) {
+  .popup-contact form textarea {
+    width: 190px;
+    height: 149px;
+  }
 }/*# sourceMappingURL=footer.css.map */
