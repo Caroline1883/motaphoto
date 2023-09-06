@@ -37,16 +37,14 @@ function isMobileScreen() {
 document.addEventListener('DOMContentLoaded', function() {
     
 const modalOverlay = document.querySelector('.popup-overlay');
-const menuContact = document.querySelector('.contact');
-// const modalCross = document.querySelector('.popup-close');
-
-menuContact.onclick = function() {
-    modalOverlay.style.display = "block";
-}
-
-// modalCross.onclick = function() {
-//     modalOverlay.style.display = "none";
-// }
+const menuContact = document.querySelectorAll('.contact');
+menuContact.forEach(item => {
+    item.onclick = function() {
+        modalOverlay.style.display = "block";
+        console.log("ok");
+    }
+})
+console.log(menuContact);
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
