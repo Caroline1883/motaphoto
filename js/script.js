@@ -26,3 +26,6 @@ function menuLiF() {
 menuLis.forEach(menuLi => {
     menuLi.addEventListener('click', menuLiF);
 });
+
+// Modal Contact
+
