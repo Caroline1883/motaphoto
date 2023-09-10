@@ -20,7 +20,7 @@
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'main-menu',
-                    'container'      => false, // without WP container
+                    'container'      => false, // without WordPress container
                     'walker'         => new Mota_Walker_Nav_Menu(),
                     'menu_class'     => 'desktop-menu',    
                 ]);
