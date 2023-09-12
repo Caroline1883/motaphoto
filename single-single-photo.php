@@ -9,8 +9,10 @@
  */ -->
 
  <?php get_header(); ?>
+ <main>
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
  <!-- Si jamais il n'y a pas de script entry-photo alors entry  -->
  <?php get_template_part( 'template-parts/entry', 'photo' ); ?>
  <?php endwhile; endif; ?>
+ </main>
  <?php get_footer(); ?>
