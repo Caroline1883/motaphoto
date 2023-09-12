@@ -1,0 +1,48 @@
+.photo {
+    h1{
+        font-size: 66px;
+        line-height: 58px;
+    }
+    display: flex;
+    height: 100vh;
+    .meta {
+        width: 50%;
+        display: flex;
+        align-items: end;
+        margin-bottom: 37px;
+        &--data{
+            max-width: 420px;
+            align-items: end;
+        }
+      }
+      .pic {
+        width: 50%;
+        display: flex;
+        object-fit: cover;
+      }    
+  }
+  
+  
+ 
+  
+  .contactnav {
+    width: 100%;
+    height: 118px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Ajoutez de la marge intérieure pour l'espacement */
+    box-sizing: border-box; /* Inclure la marge intérieure dans la largeur */
+  }
+  
+  /* Styles pour les écrans mobiles (max-width: 767px) */
+  @media screen and (max-width: 767px) {
+    .section.photo {
+      flex-direction: column; /* Mettez les éléments en colonne */
+    }
+  
+    .meta,
+    .pic {
+      width: 100%;
+    }
+  }

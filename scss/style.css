@@ -98,6 +98,7 @@ p {
   display: none;
 }
 
+/* Ceci est un test */
 /* Animations */
 @keyframes opacity {
   from {
@@ -314,4 +315,9 @@ footer ul {
     width: 190px;
     height: 149px;
   }
+}
+
+.photo {
+  display: flex;
+  height: 100vh;
 }/*# sourceMappingURL=style.css.map */
