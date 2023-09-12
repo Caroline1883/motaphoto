@@ -9,7 +9,6 @@
  */ -->
 
  <?php get_header(); ?>
- <h1>test</h1>
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
  <!-- Si jamais il n'y a pas de script entry-photo alors entry  -->
  <?php get_template_part( 'template-parts/entry', 'photo' ); ?>
