@@ -53,25 +53,60 @@
       <button class="wpcf7-submit">Contact</button>
       </div>
       <?php
-        $args = array(
+
+      //Previous photo
+        $args_previous = array(
           'post_type' => 'single-photo',
-          'posts_per_page' => -1,
+          'posts_per_page' => 1,
           'orderby' => 'date',
           'order' => 'DESC',
+          'date_query' => array(
+            'before' => get_the_date('Y-m-d H:i:s'),
+        ),
         );
 
-      $query = new WP_Query($args);
+        $query_previous = new WP_Query($args_previous);
         
-      if ($query->have_posts()) {
+      if ($query_previous->have_posts()) {
       echo '<div class="photonav">';
 
-      while ($query->have_posts()){
-        $query->the_post();
-        echo '<a href="' . get_permalink().'"class="navigation-photos"></a>';
+      while ($query_previous->have_posts()){
+        $query_previous->the_post();
+        $previous_image_url = get_field('file');
+        echo '<a href="' . get_permalink() . '"><img src="' . $previous_image_url . '" class="navigation-photos"></img>';
+
       }
       echo '</div>';
 
       wp_reset_postdata();
+      }
+
+      //Next photo
+      $args_next = array(
+        'post_type' => 'single-photo',
+        'posts_per_page' => 1,
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'date_query' => array(
+          'after' => get_the_date('Y-m-d H:i:s'),
+      ),
+      );
+
+      $query_next = new WP_Query($args_next);
+      
+    if ($query_next->have_posts()) {
+    echo '<div class="photonav">';
+
+    while ($query_next->have_posts()){
+      $query_next->the_post();
+      $next_image_url = get_field('file');
+      echo '<img src="' . $next_image_url . '" class="navigation-photos" href="' . get_permalink() . '"></img>';
+
+    }
+    echo '</div>';
+
+    wp_reset_postdata();
+
     }
       ;
       ?>
