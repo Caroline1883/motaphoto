@@ -352,11 +352,8 @@ footer ul {
   flex-direction: column;
   gap: 20px;
 }
-.photo .meta .pic {
-  display: flex;
-  align-items: end;
+.photo .pic {
   width: 50%;
-  display: flex;
   object-fit: cover;
   overflow: hidden;
 }
@@ -386,12 +383,19 @@ footer ul {
 }
 .contactnav .photonav {
   width: 81px;
+  height: 71px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
-.contactnav .photonav .photoarrows {
+.contactnav .photonav a img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.contactnav .photoarrows {
   display: flex;
   flex-direction: row;
   gap: 30px;

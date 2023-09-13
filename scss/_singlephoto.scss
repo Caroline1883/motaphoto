@@ -2,6 +2,7 @@
   height: 100vh;
   max-width: 80%;
   margin: auto;
+  overflow: hidden;
 }
 
 .photo {
@@ -27,16 +28,14 @@
             gap: 20px;
           }
       }
+    }
       .pic {
-        display: flex;
-        align-items: end;
         width: 50%;
-        display: flex;
         object-fit: cover;
         overflow: hidden;
       }    
   }
-}
+
   
   
   .contactnav {
@@ -63,10 +62,18 @@
     }
     .photonav{
       width: 81px;
+      height: 71px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      overflow: hidden;
+        a img{
+          object-fit: cover;
+          width: 100%;
+          height: auto;
+        }
+      }
       .photoarrows{
         display: flex;
         flex-direction: row;
@@ -75,7 +82,7 @@
       }
 
     }
-  }
+  
   
   /* Styles pour les écrans mobiles (max-width: 767px) */
   @media screen and (max-width: 767px) {

@@ -3,7 +3,7 @@
       <div class="photo">
       <div class="meta">
           <div class="meta--data">
-          <h1><?= the_title('<h1>', '</h1>'); ?></h1>
+          <?= the_title('<h1>', '</h1>'); ?>
           <ul>
             <li><h4>Référence : <?= get_field('ref');?></h4></li>
             <li><h4>Format : 
@@ -69,11 +69,12 @@
         
       if ($query_previous->have_posts()) {
       echo '<div class="photonav">';
+      $previous_exist = true;
 
       while ($query_previous->have_posts()){
         $query_previous->the_post();
         $previous_image_url = get_field('file');
-        echo '<a href="' . get_permalink() . '"><img src="' . $previous_image_url . '" class="navigation-photos"></img>';
+        echo '<a href="' . get_permalink() . '"><img src="' . $previous_image_url . '" class="navigation-photos" ></a>';
 
       }
       echo '</div>';
@@ -95,12 +96,13 @@
       $query_next = new WP_Query($args_next);
       
     if ($query_next->have_posts()) {
-    echo '<div class="photonav">';
+      echo '<div class="photonav">';
+      $next_exist = true;
 
     while ($query_next->have_posts()){
       $query_next->the_post();
       $next_image_url = get_field('file');
-      echo '<img src="' . $next_image_url . '" class="navigation-photos" href="' . get_permalink() . '"></img>';
+      echo '<a href="' . get_permalink() . '"><img src="' . $next_image_url . '" class="navigation-photos" ></a>';
 
     }
     echo '</div>';
@@ -111,13 +113,22 @@
       ;
       ?>
     
-        <div class="photoarrows">
-          <img class="navleft" src="<?php echo get_template_directory_uri() . '/assets/img/left.png'; ?>" alt="Navigation gauche">
-          <img class="navright" src="<?php echo get_template_directory_uri() . '/assets/img/right.png'; ?>" alt="Navigation droite">
+        
+      <div class="photoarrows">
+
+          <?php if (isset($next_exist)){?>
+            <img class="navright" src="<?php echo get_template_directory_uri() . '/assets/img/right.png'; ?>" alt="Navigation droite">
+          <?php }?>
+
+
+          <?php if (isset($previous_exist)){?>
+            <img class="navleft" src="<?php echo get_template_directory_uri() . '/assets/img/left.png'; ?>" alt="Navigation gauche">
+          <?php }?>  
+          
         </div>
       </div>
     </div>
-    
+  </section>  
 
     <section class="upsell">
       <h4>Vous aimerez aussi</h4>

@@ -2,10 +2,10 @@
 require_once get_template_directory() . '/menus.php';
 add_action('wp_enqueue_scripts', 'mota_enqueue_styles');
 function mota_enqueue_styles() {
-        wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css');
-        wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array(), '1.0', true);
+        wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css', array(), time());
+        wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array(), time(), true);
 }
-
+//Remember to delete time() versionning
 
 function register_menus(){
     register_nav_menus(
