@@ -325,6 +325,7 @@ footer ul {
   height: 100vh;
   max-width: 80%;
   margin: auto;
+  overflow: hidden;
 }
 
 .photo {
