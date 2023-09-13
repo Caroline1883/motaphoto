@@ -1,27 +1,42 @@
+.singlephoto{
+  height: 100vh;
+  max-width: 80%;
+  margin: auto;
+}
+
 .photo {
-    margin-bottom: 37px;
     h1{
         font-size: 66px;
         line-height: 58px;
+        margin-bottom: 20px;
     }
     display: flex;
-    height: 100vh;
+    gap: 21px;
     .meta {
         width: 50%;
+        border-bottom: 1px solid black;
         display: flex;
         align-items: end;
         &--data{
             max-width: 420px;
             align-items: end;
-        }
+            margin-bottom: 37px;
+            ul{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
       }
       .pic {
+        display: flex;
+        align-items: end;
         width: 50%;
         display: flex;
         object-fit: cover;
+        overflow: hidden;
       }    
   }
-  
+}
   
  
   
@@ -31,8 +46,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Ajoutez de la marge intérieure pour l'espacement */
-    box-sizing: border-box; /* Inclure la marge intérieure dans la largeur */
+    .contact{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+      button{
+        width: 272px;
+        height: 50px;
+        background-color: $medium-grey;
+        font-family: 'SpaceMono'; 
+        font-weight: 400;
+        font-size: 12px;
+        border-radius: 2px;
+        border: none;
+      }
+    }
   }
   
   /* Styles pour les écrans mobiles (max-width: 767px) */

@@ -49,8 +49,8 @@
     </div>
     <div class="contactnav">
       <div class="contact">
-      <span>Cette photo vous intéresse ?</span>
-      <button>Contact</button>
+      <p>Cette photo vous intéresse ?</p>
+      <button class="wpcf7-submit">Contact</button>
       </div>
       <div><p>navigation</p></div>
     </div>
