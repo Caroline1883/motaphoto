@@ -52,7 +52,35 @@
       <p>Cette photo vous intéresse ?</p>
       <button class="wpcf7-submit">Contact</button>
       </div>
-      <div><p>navigation</p></div>
+      <?php
+        $args = array(
+          'post_type' => 'single-photo',
+          'posts_per_page' => -1,
+          'orderby' => 'date',
+          'order' => 'DESC',
+        );
+
+      $query = new WP_Query($args);
+        
+      if ($query->have_posts()) {
+      echo '<div class="photonav">';
+
+      while ($query->have_posts()){
+        $query->the_post();
+        echo '<a href="' . get_permalink().'"class="navigation-photos"></a>';
+      }
+      echo '</div>';
+
+      wp_reset_postdata();
+    }
+      ;
+      ?>
+    
+        <div class="photoarrows">
+          <img class="navleft" src="<?php echo get_template_directory_uri() . '/assets/img/left.png'; ?>" alt="Navigation gauche">
+          <img class="navright" src="<?php echo get_template_directory_uri() . '/assets/img/right.png'; ?>" alt="Navigation droite">
+        </div>
+      </div>
     </div>
     
 

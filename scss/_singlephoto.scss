@@ -38,7 +38,6 @@
   }
 }
   
- 
   
   .contactnav {
     width: 100%;
@@ -61,6 +60,20 @@
         border-radius: 2px;
         border: none;
       }
+    }
+    .photonav{
+      width: 81px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      .photoarrows{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+      }
+
     }
   }
   

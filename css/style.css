@@ -200,7 +200,7 @@ header .mobile-menu .mobile-menu__toggle--closed {
 /* Styles for the footer + contact */
 /* Footer container */
 footer {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -383,6 +383,19 @@ footer ul {
   font-size: 12px;
   border-radius: 2px;
   border: none;
+}
+.contactnav .photonav {
+  width: 81px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.contactnav .photonav .photoarrows {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
 }
 
 /* Styles pour les écrans mobiles (max-width: 767px) */
