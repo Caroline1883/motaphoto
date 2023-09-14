@@ -111,10 +111,10 @@
 
     <div class="photoarrows">
       <?php if (isset($previous_exist)) { ?>
-        <img class="navleft" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche">
+        <img class="navleft" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche" data-action="previous">
       <?php } ?>
       <?php if (isset($next_exist)) { ?>
-        <img class="navright" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite">
+        <img class="navright" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite" data-action="next">
       <?php } ?>
     </div>
     </div>   
