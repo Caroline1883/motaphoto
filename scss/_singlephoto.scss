@@ -41,7 +41,6 @@
         justify-content: space-between;
         object-fit: cover;
         overflow: hidden;
-        align-items: center;
         text-align: center;
         max-height: calc(100vh - 128px - 80px - 40px);
         img{
@@ -78,18 +77,25 @@
       }
     }
     .photonav{
-      width: 81px;
-      height: 71px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       overflow: hidden;
+      &--photo{
+        width: 81px;
+        height: 71px;
+        position: relative;
         a img{
           object-fit: cover;
           width: 100%;
           height: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: none;
         }
+      }
       }
       .photoarrows{
         display: flex;

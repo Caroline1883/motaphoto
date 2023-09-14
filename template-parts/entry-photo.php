@@ -51,63 +51,64 @@
       <p>Cette photo vous intéresse ?</p>
       <button class="wpcf7-submit">Contact</button>
     </div>
-    <?php
-    // Previous photo
-    $args_previous = array(
-      'post_type' => 'single-photo',
-      'posts_per_page' => 1,
-      'orderby' => 'date',
-      'order' => 'DESC',
-      'date_query' => array(
-        'before' => get_the_date('Y-m-d H:i:s'),
-      ),
-    );
 
-    $query_previous = new WP_Query($args_previous);
+  <div class="photonav">
+    <div class="photonav--photo">
+      <?php
+      // Previous photo
+      $args_previous = array(
+        'post_type' => 'single-photo',
+        'posts_per_page' => 1,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'date_query' => array(
+          'before' => get_the_date('Y-m-d H:i:s'),
+        ),
+      );
 
-    if ($query_previous->have_posts()) {
-      echo '<div class="photonav">';
-      $previous_exist = true;
+      $query_previous = new WP_Query($args_previous);
 
-      while ($query_previous->have_posts()){
-        $query_previous->the_post();
-        $previous_image_url = esc_url(get_field('file'));
-        echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $previous_image_url . '" class="photoleft" ></a>';
+      if ($query_previous->have_posts()) {
+        $previous_exist = true;
+
+        while ($query_previous->have_posts()){
+          $query_previous->the_post();
+          $previous_image_url = esc_url(get_field('file'));
+          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $previous_image_url . '" class="photoleft" ></a>';
+        }
+
+
+        wp_reset_postdata();
       }
 
-      echo '</div>';
+      // Next photo
+      $args_next = array(
+        'post_type' => 'single-photo',
+        'posts_per_page' => 1,
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'date_query' => array(
+          'after' => get_the_date('Y-m-d H:i:s'),
+        ),
+      );
 
-      wp_reset_postdata();
-    }
+      $query_next = new WP_Query($args_next);
 
-    // Next photo
-    $args_next = array(
-      'post_type' => 'single-photo',
-      'posts_per_page' => 1,
-      'orderby' => 'date',
-      'order' => 'ASC',
-      'date_query' => array(
-        'after' => get_the_date('Y-m-d H:i:s'),
-      ),
-    );
+      if ($query_next->have_posts()) {
+        $next_exist = true;
 
-    $query_next = new WP_Query($args_next);
+        while ($query_next->have_posts()){
+          $query_next->the_post();
+          $next_image_url = esc_url(get_field('file'));
+          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright" ></a>';
+        }
 
-    if ($query_next->have_posts()) {
-      echo '<div class="photonav">';
-      $next_exist = true;
 
-      while ($query_next->have_posts()){
-        $query_next->the_post();
-        $next_image_url = esc_url(get_field('file'));
-        echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright" ></a>';
+        wp_reset_postdata();
       }
+      ?>
+    </div>
 
-      echo '</div>';
-
-      wp_reset_postdata();
-    }
-    ?>
     <div class="photoarrows">
       <?php if (isset($previous_exist)) { ?>
         <img class="navleft" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche">
@@ -115,8 +116,9 @@
       <?php if (isset($next_exist)) { ?>
         <img class="navright" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite">
       <?php } ?>
-
     </div>
+    </div>   
+
   </div>
 </section>
 

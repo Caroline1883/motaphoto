@@ -362,7 +362,6 @@ footer ul {
   justify-content: space-between;
   object-fit: cover;
   overflow: hidden;
-  align-items: center;
   text-align: center;
   max-height: calc(100vh - 128px - 80px - 40px);
 }
@@ -396,18 +395,25 @@ footer ul {
   border: none;
 }
 .contactnav .photonav {
-  width: 81px;
-  height: 71px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
 }
-.contactnav .photonav a img {
+.contactnav .photonav--photo {
+  width: 81px;
+  height: 71px;
+  position: relative;
+}
+.contactnav .photonav--photo a img {
   object-fit: cover;
   width: 100%;
   height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
 }
 .contactnav .photoarrows {
   display: flex;
