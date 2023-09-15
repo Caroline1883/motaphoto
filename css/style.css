@@ -272,6 +272,7 @@ footer ul {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  background-color: white;
 }
 @media (max-width: 768px) {
   .popup-contact form {
@@ -290,6 +291,7 @@ footer ul {
   border: solid 1px #B8BBC2;
   border-radius: 8px;
   max-width: 100%;
+  padding-left: 4px;
 }
 .popup-contact form .wpcf7-submit {
   width: 263px;
@@ -300,10 +302,12 @@ footer ul {
   font-size: 12px;
   border-radius: 2px;
   border: none;
+  padding-bottom: 36px;
 }
 @media (max-width: 768px) {
   .popup-contact form .wpcf7-submit {
     width: 190px;
+    padding-bottom: 24px;
   }
 }
 .popup-contact form textarea {
@@ -311,11 +315,12 @@ footer ul {
   border-radius: 8px;
   width: 263px;
   height: 210px;
+  padding-left: 4px;
 }
 @media (max-width: 768px) {
   .popup-contact form textarea {
     width: 190px;
-    height: 149px;
+    height: 15vh;
   }
 }
 

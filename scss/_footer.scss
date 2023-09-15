@@ -95,6 +95,7 @@ footer{
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        background-color: white;
         @media (max-width: $mobile-breakpoint) {
             width: 190px;
             gap: 14px;
@@ -112,6 +113,7 @@ footer{
             border: solid 1px $form-grey;
             border-radius: 8px;
             max-width: 100%;
+            padding-left: 4px;
         }
     
         .wpcf7-submit{
@@ -123,8 +125,10 @@ footer{
             font-size: 12px;
             border-radius: 2px;
             border: none;
+            padding-bottom: 36px;
             @media (max-width: $mobile-breakpoint) {
                 width: 190px;
+                padding-bottom: 24px;
               }
 
         }
@@ -136,9 +140,10 @@ footer{
             border-radius: 8px;
             width: 263px;
             height: 210px;
+            padding-left: 4px;
             @media (max-width: $mobile-breakpoint) {
                 width: 190px;
-                height: 149px;
+                height: 15vh;
               }
         }
 
