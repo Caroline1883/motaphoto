@@ -215,6 +215,7 @@ footer ul {
 @media (max-width: 768px) {
   footer ul {
     height: 208px;
+    position: relative;
     flex-direction: column;
     gap: 24px;
   }
@@ -326,6 +327,11 @@ footer ul {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 768px) {
+  .singlephoto {
+    height: auto;
+  }
+}
 
 .photo {
   display: flex;
@@ -344,7 +350,6 @@ footer ul {
 }
 @media screen and (max-width: 768px) {
   .photo .meta {
-    max-height: 276px;
     padding: 5px 0px 5px 0px;
   }
 }
@@ -358,10 +363,21 @@ footer ul {
   flex-direction: column;
   gap: 20px;
 }
+@media screen and (max-width: 768px) {
+  .photo .meta--data ul {
+    gap: 15px;
+  }
+}
 .photo .meta--data h1 {
   font-size: 66px;
   line-height: 58px;
   margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .photo .meta--data h1 {
+    font-size: 46px;
+    line-height: 48px;
+  }
 }
 .photo .pic {
   flex: 1;
@@ -371,12 +387,19 @@ footer ul {
   object-fit: cover;
   overflow: hidden;
   text-align: center;
-  height: calc(100vh - 128px - 80px - 40px);
+  padding-top: 38px;
+  height: calc(100vh - 128px - 80px);
+}
+@media screen and (max-width: 768px) {
+  .photo .pic {
+    height: calc(100vh - 72px - 276px);
+    padding-top: 20px;
+  }
 }
 .photo .pic img {
   max-height: 100%;
   object-fit: cover;
-  height: calc(100vh - 128px - 80px - 40px);
+  height: calc(100vh - 72px - 276px);
 }
 
 .contactnav {
