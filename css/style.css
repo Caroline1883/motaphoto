@@ -1,3 +1,11 @@
+.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,14 +101,6 @@ p {
 }
 
 /* Styles for the header */
-.active {
-  display: block;
-}
-
-.inactive {
-  display: none;
-}
-
 /* Ceci est un test */
 /* Animations */
 @keyframes opacity {

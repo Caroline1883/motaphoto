@@ -1,5 +1,13 @@
 @import 'variables';
 
+.active{
+  display: block;
+}
+
+.inactive{
+  display: none;
+}
+
 * {
     margin: 0;
     padding: 0;
