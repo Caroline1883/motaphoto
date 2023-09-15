@@ -4,7 +4,7 @@
       <div class="meta--data">
         <h1><?= the_title(); ?></h1>
         <ul>
-          <li><h4>Référence : <?= get_field('ref');?></h4></li>
+          <li id="refer"><h4>Référence : <?= get_field('ref');?></h4></li>
           <li><h4>Format : 
             <?php
             $format_id = get_field('format');

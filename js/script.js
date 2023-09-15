@@ -44,9 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 );
 
-
   
-// Header + Modale
+// Navigation
 
 document.addEventListener('DOMContentLoaded', function() {
     const navRight = document.querySelector('.navright');
@@ -70,4 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
     photoLeft.classList.toggle('inactive');
     });
 
+});
+
+// Ref recuperation
+
+jQuery(document).ready(function() {
+    var acfValue = jQuery('#refer h4').text().trim(); 
+    jQuery('#ref-photo').val(acfValue).change(); 
 });
