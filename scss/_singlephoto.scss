@@ -11,12 +11,19 @@
 
     display: flex;
     gap: 21px;
+    @media screen and (max-width: $mobile-breakpoint) {
+        flex-direction: column-reverse;
+      }
    
     .meta {
         flex: 1;
         border-bottom: 1px solid black;
         display: flex;
         align-items: end;
+        @media screen and (max-width: $mobile-breakpoint) {
+          max-height: 276px;
+          padding: 5px 0px 5px 0px;
+        }
         &--data{
             max-width: 420px;
             align-items: end;
@@ -106,10 +113,3 @@
 
     }
   
-  
-  /* Styles pour les écrans mobiles (max-width: 767px) */
-  @media screen and (max-width: 767px) {
-    .section.photo {
-      flex-direction: column; /* Mettez les éléments en colonne */
-    }
-  }
