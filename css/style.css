@@ -363,12 +363,12 @@ footer ul {
   object-fit: cover;
   overflow: hidden;
   text-align: center;
-  max-height: calc(100vh - 128px - 80px - 40px);
+  height: calc(100vh - 128px - 80px - 40px);
 }
 .photo .pic img {
-  max-width: 100%;
   max-height: 100%;
   object-fit: cover;
+  height: calc(100vh - 128px - 80px - 40px);
 }
 
 .contactnav {
