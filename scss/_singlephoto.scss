@@ -82,11 +82,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid black;
+    @media screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+      height: 125px;
+      justify-content: center;
+      }
     .contact{
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 50%;
+      @media screen and (max-width: $mobile-breakpoint) {
+        width: 120%;
+        flex-direction: column;
+        gap: 15px;
+        }
       button{
         width: 272px;
         height: 50px;
@@ -105,6 +116,9 @@
       gap: 19px;
       align-items: center;
       overflow: hidden;
+      @media screen and (max-width: $mobile-breakpoint) {
+      display: none;
+        }
       &--photo{
         width: 81px;
         height: 71px;

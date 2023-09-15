@@ -408,12 +408,27 @@ footer ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid black;
+}
+@media screen and (max-width: 768px) {
+  .contactnav {
+    flex-direction: column;
+    height: 125px;
+    justify-content: center;
+  }
 }
 .contactnav .contact {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 50%;
+}
+@media screen and (max-width: 768px) {
+  .contactnav .contact {
+    width: 120%;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 .contactnav .contact button {
   width: 272px;
@@ -432,6 +447,11 @@ footer ul {
   gap: 19px;
   align-items: center;
   overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .contactnav .photonav {
+    display: none;
+  }
 }
 .contactnav .photonav--photo {
   width: 81px;
