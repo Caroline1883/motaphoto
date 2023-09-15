@@ -44,8 +44,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 );
 
-// Single photo navigation
-// Consigne à revoir
 
-
-
+  

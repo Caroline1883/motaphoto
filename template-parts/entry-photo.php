@@ -110,13 +110,25 @@
     </div>
 
     <div class="photoarrows">
-      <?php if (isset($previous_exist)) { ?>
-        <img class="navleft" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche" data-action="previous">
-      <?php } ?>
-      <?php if (isset($next_exist)) { ?>
-        <img class="navright" src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite" data-action="next">
-      <?php } ?>
-    </div>
+  
+    <?php
+      $previous_post = get_previous_post();
+      if (!empty($previous_post)) {
+      $previous_post_url = get_permalink($previous_post);
+    ?>
+    <a class="navleft" href="<?php echo esc_url($previous_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche"></a>
+    <?php } ?>
+
+    <?php
+      $next_post = get_next_post();
+      if (!empty($next_post)) {
+      $next_post_url = get_permalink($next_post);
+    ?>
+    <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite"></a>
+    <?php } ?>
+  
+  </div>
+
     </div>   
 
   </div>

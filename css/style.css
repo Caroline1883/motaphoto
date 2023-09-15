@@ -398,6 +398,7 @@ footer ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 19px;
   align-items: center;
   overflow: hidden;
 }
@@ -409,11 +410,10 @@ footer ul {
 .contactnav .photonav--photo a img {
   object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  display: none;
 }
 .contactnav .photoarrows {
   display: flex;
