@@ -46,3 +46,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   
+// Header + Modale
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navRight = document.querySelector('.navright');
+    const navLeft = document.querySelector('.navleft');
+    const photoRight = document.querySelector('.photoright');
+    const photoLeft = document.querySelector('.photoleft');
+
+    navRight.addEventListener('mouseenter', function() {
+    photoRight.classList.toggle('inactive');
+    });
+
+    navRight.addEventListener('mouseleave', function() {
+    photoRight.classList.toggle('inactive');
+    });
+
+    navLeft.addEventListener('mouseenter', function() {
+    photoLeft.classList.toggle('inactive');
+    });
+    
+    navLeft.addEventListener('mouseleave', function() {
+    photoLeft.classList.toggle('inactive');
+    });
+
+});

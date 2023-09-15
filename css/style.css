@@ -399,6 +399,12 @@ footer ul {
 .photo .pic img {
   max-height: 100%;
   object-fit: cover;
+  height: calc(100vh - 128px - 80px);
+}
+@media screen and (max-width: 768px) {
+  .photo .pic img {
+    height: calc(100vh - 72px - 276px);
+  }
 }
 
 .contactnav {
