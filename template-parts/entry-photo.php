@@ -141,5 +141,5 @@
 
 <section class="upsell">
   <h4>Vous aimerez aussi</h4>
-  <div></div>
+  <div> <?php echo get_template_part('template-parts/photo_block'); ?></div>
 </section>
