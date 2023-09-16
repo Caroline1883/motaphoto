@@ -33,9 +33,13 @@
   $my_query = new WP_Query( $args_upsell);
 
   if($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
-
-  echo '<div class="photo_block"><img src="' . esc_url(get_field('file')) . '" alt="' . esc_attr(get_field('description')) . '"></div>';
-
+    echo '<div class="photo-container">';
+    echo '<div class="photo_block"><img src="' . esc_url(get_field('file')) . '" alt="' . esc_attr(get_field('description')) . '"></div>';
+    echo '
+    <div class="icons">
+    <span class="info-icon"><i class="fa fa-eye"></i></span>
+    <span class="fullscreen-icon"><i class="fa fa-arrows-alt"></i></span>
+    </div></div>';
 
 endwhile;
 endif;

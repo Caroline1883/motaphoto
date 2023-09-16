@@ -2,7 +2,6 @@
   height: 100vh;
   max-width: 80%;
   margin: auto;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   @media screen and (max-width: $mobile-breakpoint) {
@@ -150,6 +149,20 @@
     .upsell_block{
     display: flex;
     gap: 20px;
+    .photo-container {
+      position: relative;
+      display: inline-block;
+      .icons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .photo-container:hover .icons{
+        opacity: 1;
+      }
+    }
       .photo_block{
       width: 564px;
       height: 495px;
