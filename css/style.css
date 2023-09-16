@@ -520,6 +520,7 @@ footer ul {
   height: 495px;
   overflow: hidden;
   object-fit: cover;
+  display: flex;
 }
 @media screen and (max-width: 768px) {
   .upsell .upsell_block .photo-container {
