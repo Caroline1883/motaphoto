@@ -4,8 +4,16 @@
 
  */
 
+//  $terms = wp_get_post_terms(get_the_ID(), 'photocat'); // Remplacez 'votre_taxonomie' par le nom de votre taxonomie
 
- $args_next = array(
+// if ($terms) {
+//     $term_ids = array();
+//     foreach ($terms as $term) {
+//         $term_ids[] = $term->term_id;
+//     }
+
+
+ $args_upsell = array(
     'post_type' => 'single-photo',
     'posts_per_page' => 2,
     'orderby' => 'date',
@@ -13,9 +21,16 @@
     'date_query' => array(
       'after' => get_the_date('Y-m-d H:i:s'),
     ),
-  );
+    // 'tax_query' => array(
+    //     array(
+    //         'taxonomy' => 'photocat', // Remplacez 'votre_taxonomie' par le nom de votre taxonomie
+    //         'field' => 'id',
+    //         'terms' => $term_ids,
+    //     ),
+    // )
+);
 
-  $my_query = new WP_Query( array( 'post_type' => 'single-photo'));
+  $my_query = new WP_Query( $args_upsell);
 
   if($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
 

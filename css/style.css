@@ -486,4 +486,14 @@ footer ul {
 .upsell {
   max-width: 80%;
   margin: auto;
+}
+.upsell .upsell_block {
+  display: flex;
+  gap: 20px;
+}
+.upsell .upsell_block .photo_block {
+  width: 564px;
+  height: 495px;
+  overflow: hidden;
+  object-fit: cover;
 }/*# sourceMappingURL=style.css.map */
