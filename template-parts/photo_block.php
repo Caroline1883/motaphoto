@@ -46,6 +46,8 @@ endif;
 
 wp_reset_postdata();
 
-
-
 ?>
+</div>
+<div class="load">
+<button class="wpcf7-submit">Toutes les photos</button>
+</div>

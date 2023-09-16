@@ -140,6 +140,6 @@
 </section>
 
 <section class="upsell">
-  <h4>Vous aimerez aussi</h4>
+  <div class="upselltitle"><h3>Vous aimerez aussi</h3></div>
   <div class="upsell_block"> <?php echo get_template_part('template-parts/photo_block'); ?></div>
 </section>
