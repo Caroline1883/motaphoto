@@ -3,11 +3,22 @@
  * Template part for displaying photoblock in home & single-photo
  */
 
+ $photocat_term_id = get_field('photocat');
+ var_dump($photocat_term_id);
+
+
     $args_upsell = array(
         'post_type' => 'single-photo',
-        'posts_per_page' => 2,
+        'posts_per_page' => -1,
         'orderby' => 'date',
         'order' => 'ASC',
+        'tax_query' => array(
+          array(
+              'taxonomy' => 'photocat', 
+              'field' => 'id',
+              'terms' => $photocat_term_id,
+          ),
+      ),
     );
 
     $my_query = new WP_Query($args_upsell);
