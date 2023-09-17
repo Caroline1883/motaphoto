@@ -571,6 +571,7 @@ footer ul {
   height: 962px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 @media screen and (max-width: 768px) {
   .hero {
