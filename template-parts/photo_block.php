@@ -4,7 +4,6 @@
  */
 
  $photocat_term_id = get_field('photocat');
- var_dump($photocat_term_id);
 
 
     $args_upsell = array(
@@ -31,10 +30,9 @@
                 <div class="photo_block">
                     <img src="<?= esc_url(get_field('file')); ?>" alt="<?= esc_attr(get_field('description')); ?>">
                 </div>
-                <div class="overlay"></div>
-                <div class="icons">
-                  <div class="eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                  <div class="fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.png" alt="voir la photo"></div>    
+                <div class="overlay">
+                  <div class="icons eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
+                  <div class="icons fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo"></div>    
                 </div>
             </div>
 

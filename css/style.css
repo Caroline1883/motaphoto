@@ -543,13 +543,16 @@ footer ul {
   opacity: 0;
   transition: opacity 0.3s;
 }
-.upsell .upsell_block .icons .eye-icon {
-  align-items: center;
-}
-.upsell .upsell_block .icons .fullscreen-icon {
+.upsell .upsell_block .eye-icon {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+.upsell .upsell_block .fullscreen-icon {
+  position: absolute;
+  top: 11px;
+  right: 18px;
 }
 .upsell .upsell_block .photo-container:hover .icons,
 .upsell .upsell_block .photo-container:hover .overlay {
@@ -561,4 +564,20 @@ footer ul {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hero {
+  background-color: black;
+  height: 962px;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 253px;
+  }
+}
+.hero h1 {
+  text-align: center;
+  text-shadow: white 1px 1px, white -1px 1px, white -1px -1px, white 1px -1px;
 }/*# sourceMappingURL=style.css.map */

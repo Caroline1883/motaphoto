@@ -1,0 +1,14 @@
+.hero{
+    background-color: black;
+    height: 962px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    @media screen and (max-width: $mobile-breakpoint) {
+        height: 253px;
+          }
+    h1{
+        text-align: center;
+        text-shadow: white 1px 1px, white -1px 1px, white -1px -1px, white 1px -1px;
+    }
+} 
