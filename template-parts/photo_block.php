@@ -31,9 +31,10 @@
                 <div class="photo_block">
                     <img src="<?= esc_url(get_field('file')); ?>" alt="<?= esc_attr(get_field('description')); ?>">
                 </div>
+                <div class="overlay"></div>
                 <div class="icons">
-                    <span class="info-icon"><i class="fa fa-eye"></i></span>
-                    <span class="fullscreen-icon"><i class="fa fa-arrows-alt"></i></span>
+                  <div class="eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
+                  <div class="fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.png" alt="voir la photo"></div>    
                 </div>
             </div>
 

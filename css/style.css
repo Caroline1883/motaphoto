@@ -528,17 +528,35 @@ footer ul {
     height: 320px;
   }
 }
-.upsell .upsell_block .photo-container .icons {
+.upsell .upsell_block .overlay {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: opacity 0.3s;
 }
-.upsell .upsell_block .photo-container .photo-container:hover .icons {
+.upsell .upsell_block .icons {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.upsell .upsell_block .icons .eye-icon {
+  align-items: center;
+}
+.upsell .upsell_block .icons .fullscreen-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.upsell .upsell_block .photo-container:hover .icons,
+.upsell .upsell_block .photo-container:hover .overlay {
   opacity: 1;
 }
-.upsell .load {
+
+.load {
   width: 100%;
   display: flex;
   justify-content: center;
