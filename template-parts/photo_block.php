@@ -5,6 +5,7 @@
 
  $photocat_term_id = get_field('photocat');
 
+ if($photocat_term_id){
 
     $args_upsell = array(
         'post_type' => 'single-photo',
@@ -24,26 +25,30 @@
 
     if ($my_query->have_posts()) :
         while ($my_query->have_posts()) : $my_query->the_post();
-?>
-
-            <div class="photo-container">
-                <div class="photo_block">
-                    <img src="<?= esc_url(get_field('file')); ?>" alt="<?= esc_attr(get_field('description')); ?>">
-                </div>
-                <div class="overlay">
-                  <div class="icons eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                  <div class="icons fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo"></div>    
-                </div>
+        ?>
+        <div class="photo-container">
+            <div class="photo_block">
+                <img src="<?= esc_url(get_field('file')); ?>" alt="<?= esc_attr(get_field('description')); ?>">
             </div>
-
-<?php
+            <div class="overlay">
+                <div class="icons eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
+                <div class="icons fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo"></div>    
+            </div>
+        </div>
+        <?php
         endwhile;
         wp_reset_postdata();
+    else:
+        // Affichez un message si aucune publication n'est trouvée
+        echo 'Aucune publication trouvée';
     endif;
+} else {
+    // Si le terme photocat n'est pas défini
+    echo 'photocat non défini';
+}
+            ?>
 
-?>
 
-</div>
-<div class="load">
-    <button class="wpcf7-submit">Toutes les photos</button>
-</div>
+
+
+
