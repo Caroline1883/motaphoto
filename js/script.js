@@ -93,6 +93,7 @@ jQuery(document).ready(function($) {
                 offset: offset,
             },
             success: function(response) {
+                console.log(response);
 
                 if (response.length > 0) {
                     response.forEach(function(photo) {
@@ -102,7 +103,7 @@ jQuery(document).ready(function($) {
                     offset += 12; // For next request
                 } else {
                     // If no photo
-                    $('#load-more-button').hide();
+                    $('.load').hide();
                 }
             },
         });
