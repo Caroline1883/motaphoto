@@ -13,6 +13,9 @@
         text-align: center;
         color: rgba(255, 255, 255, 0); 
         -webkit-text-stroke: 3px white; 
+        @media screen and (max-width: $mobile-breakpoint) {
+            -webkit-text-stroke: 0.86px white; 
+              }
     }
     &--img{
         position: absolute;

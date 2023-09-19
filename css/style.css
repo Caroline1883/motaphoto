@@ -586,6 +586,11 @@ footer ul {
   color: rgba(255, 255, 255, 0);
   -webkit-text-stroke: 3px white;
 }
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    -webkit-text-stroke: 0.86px white;
+  }
+}
 .hero--img {
   position: absolute;
   top: 0;
