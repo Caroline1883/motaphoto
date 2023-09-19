@@ -45,7 +45,7 @@ if ($photo_posts->have_posts()) {
 
 </section>
 
-<section class="photolist">
+<section class="upsell_block">
 <?php echo get_template_part('template-parts/photo_block'); ?></div>
 </section>
 <?php get_footer(); ?>
