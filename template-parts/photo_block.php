@@ -9,7 +9,7 @@
 
     $args_upsell = array(
         'post_type' => 'single-photo',
-        'posts_per_page' => -1,
+        'posts_per_page' => 2,
         'orderby' => 'date',
         'order' => 'ASC',
         'tax_query' => array(
@@ -46,7 +46,7 @@
 } else {
     $args_upsell = array(
         'post_type' => 'single-photo',
-        'posts_per_page' => -1,
+        'posts_per_page' => 12,
         'orderby' => 'date',
         'order' => 'ASC',
         );
