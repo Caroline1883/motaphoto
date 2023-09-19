@@ -18,6 +18,10 @@ function register_menus(){
 }
 add_action( 'init', 'register_menus' );
 
+
+
+
+
 // Adds
 add_theme_support( 
     'custom-logo',

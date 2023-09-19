@@ -78,3 +78,35 @@ jQuery(document).ready(function() {
     jQuery('#ref-photo').val(acfValue).change(); 
 });
 
+// Boutons chargements
+
+jQuery(document).ready(function($) {
+    var offset = 12; // A variabiliser pour la photo
+
+    $('.load').on('click', function() {
+        
+        $.ajax({
+            type: 'POST',
+            url: ajaxurl, 
+            data: {
+                action: 'load_more_photos',
+                offset: offset,
+            },
+            success: function(response) {
+
+                if (response.length > 0) {
+                    response.forEach(function(photo) {
+                        // Créez et ajoutez les éléments HTML pour chaque photo
+                    });
+
+                    offset += 12; // For next request
+                } else {
+                    // If no photo
+                    $('#load-more-button').hide();
+                }
+            },
+        });
+    });
+});
+
+
