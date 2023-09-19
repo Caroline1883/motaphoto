@@ -45,7 +45,17 @@ if ($photo_posts->have_posts()) {
 
 </section>
 
-<section class="upsell_block">
-<?php echo get_template_part('template-parts/photo_block'); ?></div>
+<section class="photolist">
+    
+    <div class="upsell_block">
+        <?php echo get_template_part('template-parts/photo_block'); ?>
+    </div>
+
+    <div class="load">
+        <button class="wpcf7-submit">Charger plus</button>
+    </div>
+
 </section>
+
+
 <?php get_footer(); ?>

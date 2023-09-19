@@ -29,4 +29,10 @@
     }
 } 
 
+.photolist{
+    padding: 80px 0px 64px 0px;
+    @media screen and (max-width: $mobile-breakpoint) {
+        padding-top: 35px;
+          }
 
+}

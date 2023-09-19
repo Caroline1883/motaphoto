@@ -142,6 +142,7 @@
 <section class="upsell">
   <div class="upselltitle"><h3>Vous aimerez aussi</h3></div>
   <div class="upsell_block"> <?php echo get_template_part('template-parts/photo_block'); ?></div>
+  
   <div class="load">
     <button class="wpcf7-submit">Toutes les photos</button>
   </div>
