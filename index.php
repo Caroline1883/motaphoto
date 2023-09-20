@@ -7,32 +7,21 @@
 $args = array(
     'post_type' => 'single-photo', 
     'post_status' => 'publish',
-    'posts_per_page' => -1,
+    'posts_per_page' => 1,
+    'orderby' => 'rand',
 );
 
-$photo_posts = new WP_Query($args);
+$photo_post = new WP_Query($args);
 
-if ($photo_posts->have_posts()) {
-    // Créez un tableau pour stocker les ID des médias utilisés dans les publications "photo"
-    $media_ids = array();
-
-    while ($photo_posts->have_posts()) {
-        $photo_posts->the_post();
-
-        // Récupérer les médias attachés à chaque publication "photo"
+if ($photo_post->have_posts()) {
+    
+    while ($photo_post->have_posts()) {
+        $photo_post->the_post();
         $media = get_attached_media('image', get_the_ID());
-
-        // Ajouter les ID des médias au tableau
-        foreach ($media as $attachment) {
-            $media_ids[] = $attachment->ID;
-        }
+        var_dump($media[0]);
+        $image_url = wp_get_attachment_image_url($media[0]->ID, 'full');
     }
 
-    // Choisissez un ID de média au hasard parmi ceux stockés dans le tableau
-    $random_media_id = $media_ids[array_rand($media_ids)];
-
-    // Récupérer l'URL de l'image aléatoire
-    $image_url = wp_get_attachment_image_url($random_media_id, 'full');
 
     // Afficher l'image dans la bannière "hero"
     echo '<img class="hero--img" src="' . esc_url($image_url) . '" alt="' . esc_attr(get_field('description')) . '">';

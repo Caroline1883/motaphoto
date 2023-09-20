@@ -10,8 +10,9 @@
     $args_upsell = array(
         'post_type' => 'single-photo',
         'posts_per_page' => 2,
-        'orderby' => 'date',
+        'orderby' => 'rand',
         'order' => 'ASC',
+        'post__not_in' => array(get_the_ID()),
         'tax_query' => array(
           array(
               'taxonomy' => 'photocat', 
