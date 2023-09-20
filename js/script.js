@@ -82,12 +82,13 @@ jQuery(document).ready(function() {
 
 jQuery(document).ready(function($) {
     var offset = 12; // A variabiliser pour la photo
+    var $loadButton = $('.load-more'); // Sélectionnez le bouton de chargement
 
-    $('.load').on('click', function() {
+    $loadButton.on('click', function() {
         
         $.ajax({
             type: 'POST',
-            url: ajaxurl, 
+            url: ajax_data.ajaxurl, 
             data: {
                 action: 'load_more_photos',
                 offset: offset,
@@ -97,13 +98,13 @@ jQuery(document).ready(function($) {
 
                 if (response.length > 0) {
                     response.forEach(function(photo) {
-                        // Créez et ajoutez les éléments HTML pour chaque photo
+                        $('.photolist .upsell_block').append(photo);
                     });
 
-                    offset += 12; // For next request
+                    offset += 12; 
                 } else {
-                    // If no photo
-                    $('.load').hide();
+
+                    $loadButton.hide();
                 }
             },
         });
