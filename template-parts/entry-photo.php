@@ -83,10 +83,15 @@
 
         while ($query_previous->have_posts()){
           $query_previous->the_post();
-          $previous_image_url = esc_url(get_field('file'));
-          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $previous_image_url . '" class="photoleft inactive" ></a>';
-        }
+          $thumbnailprevious_id = get_post_thumbnail_id();
+          if ($thumbnailprevious_id) {
+            $imageprevious_info = wp_get_attachment_image_src($thumbnailprevious_id, 'full');
+            $alt_text_previous = get_post_meta($thumbnailprevious_id, '_wp_attachment_image_alt', true);
+            $previous_image_url = esc_url($imageprevious_info[0]); 
+          } 
 
+          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $previous_image_url . '" class="photoleft inactive" alt="' .$alt_text_previous . '"></a>';
+        }
 
         wp_reset_postdata();
       }
@@ -109,8 +114,14 @@
 
         while ($query_next->have_posts()){
           $query_next->the_post();
-          $next_image_url = esc_url(get_field('file'));
-          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright inactive" ></a>';
+          $thumbnailnext_id = get_post_thumbnail_id();
+          if ($thumbnailnext_id) {
+            $imagenext_info = wp_get_attachment_image_src($thumbnailnext_id, 'full');
+            $alt_text_next = get_post_meta($thumbnailnext_id, '_wp_attachment_image_alt', true);
+            $next_image_url = esc_url($imagenext_info[0]); 
+          } 
+
+          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright inactive" alt="' .$alt_text_next . '"></a>';
         }
 
 
