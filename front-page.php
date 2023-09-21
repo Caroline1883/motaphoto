@@ -3,10 +3,9 @@
 <h1>Photographe Event</h1>
 <?php
 
-// Récupérer les médias attachés aux publications de type "photo"
+// Random img
 $args = array(
     'post_type' => 'single-photo', 
-    'post_status' => 'publish',
     'posts_per_page' => 1,
     'orderby' => 'rand',
 );
@@ -17,16 +16,16 @@ if ($photo_post->have_posts()) {
     
     while ($photo_post->have_posts()) {
         $photo_post->the_post();
-        $media = get_attached_media('image', get_the_ID());
-        var_dump($media[0]);
-        $image_url = wp_get_attachment_image_url($media[0]->ID, 'full');
+        $photo_post_id = get_post_thumbnail_id();
+        if ($photo_post_id){
+            $photo_post_id_info = wp_get_attachment_image_src($photo_post_id, 'full');
+            $alt_text_photo_post = get_post_meta($photo_post_id_info, '_wp_attachment_image_alt', true);
+            $photo_post_image_url = esc_url($photo_post_id_info[0]); 
+        }
+        echo '<img class="hero--img" src="' . esc_url($photo_post_image_url) . '" alt="' . $alt_text_photo_post . '">';
+
     }
 
-
-    // Afficher l'image dans la bannière "hero"
-    echo '<img class="hero--img" src="' . esc_url($image_url) . '" alt="' . esc_attr(get_field('description')) . '">';
-
-    // Réinitialiser la requête WP
     wp_reset_postdata();
 }
 ?>
