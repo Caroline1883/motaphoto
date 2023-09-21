@@ -41,7 +41,7 @@ if ($photo_post->have_posts()) {
     </div>
 
     <div class="load">
-        <button class="wpcf7-submit">Charger plus</button>
+        <button class="wpcf7-submit load-more">Charger plus</button>
     </div>
 
 </section>
