@@ -50,8 +50,7 @@
         endwhile;
         wp_reset_postdata();
     else:
-        // Affichez un message si aucune publication n'est trouvée
-        echo 'Aucune publication trouvée';
+        echo '<p>Aucune publication trouvée</p>';
     endif;
 
 } else {
@@ -69,7 +68,17 @@
         ?>
         <div class="photo-container">
             <div class="photo_block">
-                <img src="<?= esc_url(get_field('file')); ?>" alt="<?= esc_attr(get_field('description')); ?>">
+            <?php
+                    $thumbnail_id = get_post_thumbnail_id();
+                    if ($thumbnail_id) {
+                        $image_info = wp_get_attachment_image_src($thumbnail_id, 'full');
+                        $file_name = basename($image_info[0]);
+                        $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                        echo '<img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '" />';
+                    } else {
+                        echo '<p>Aucune image</p>';
+                    }
+                ?>
             </div>
             <div class="overlay">
                 <div class="icons eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
