@@ -71,6 +71,8 @@ function load_more_photos() {
     $args = array(
         'post_type' => 'single-photo',
         'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'ASC',
         'offset' => $offset,
     );
 
@@ -81,14 +83,17 @@ function load_more_photos() {
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
+            $thumbnail_id = get_post_thumbnail_id();
 
-            $image_url = esc_url(get_field('file'));
-            $image_description = esc_attr(get_field('description'));
+            if ($thumbnail_id) {
+                $image_info = wp_get_attachment_image_src($thumbnail_id, 'full');
+                $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+            }
 
             $photo_html = '
                 <div class="photo-container">
                     <div class="photo_block">
-                        <img src="' . $image_url . '" alt="' . $image_description . '">
+                        <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
                     </div>
                     <div class="overlay">
                         <div class="icons eye-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo"></div>
