@@ -137,9 +137,9 @@
       if (!empty($previous_post)) {
       $previous_post_url = get_permalink($previous_post);
     ?>
-    <a class="navleft" href="<?php echo esc_url($previous_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche"></a>
+    <a class="navleft" href="<?php echo esc_url($previous_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/previous.svg'; ?>" alt="Navigation gauche"></a>
     <?php } else { ?>
-    <a class="navleft inactive" href="#"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/left.png'; ?>" alt="Navigation gauche"></a>
+    <a class="navleft inactive" href="#"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/next.svg'; ?>" alt="Navigation gauche"></a>
     <?php } ?>
 
 
