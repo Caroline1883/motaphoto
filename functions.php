@@ -77,6 +77,7 @@ function load_more_photos() {
     );
 
     $query = new WP_Query($args);
+    $total_posts = $query->found_posts;
 
     $photos = array();
 
@@ -106,6 +107,7 @@ function load_more_photos() {
     }
 
     wp_send_json($photos);
+    wp_send_json($total_posts);
 }
 
 add_action('wp_ajax_load_more_photos', 'load_more_photos');

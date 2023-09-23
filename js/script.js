@@ -47,29 +47,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
 // Navigation
 
-document.addEventListener('DOMContentLoaded', function() {
-    const navRight = document.querySelector('.navright');
-    const navLeft = document.querySelector('.navleft');
-    const photoRight = document.querySelector('.photoright');
-    const photoLeft = document.querySelector('.photoleft');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const navRight = document.querySelector('.navright');
+//     const navLeft = document.querySelector('.navleft');
+//     const photoRight = document.querySelector('.photoright');
+//     const photoLeft = document.querySelector('.photoleft');
 
-    navRight.addEventListener('mouseenter', function() {
-    photoRight.classList.toggle('inactive');
-    });
+//     navRight.addEventListener('mouseenter', function() {
+//     photoRight.classList.toggle('inactive');
+//     });
 
-    navRight.addEventListener('mouseleave', function() {
-    photoRight.classList.toggle('inactive');
-    });
+//     navRight.addEventListener('mouseleave', function() {
+//     photoRight.classList.toggle('inactive');
+//     });
 
-    navLeft.addEventListener('mouseenter', function() {
-    photoLeft.classList.toggle('inactive');
-    });
+//     navLeft.addEventListener('mouseenter', function() {
+//     photoLeft.classList.toggle('inactive');
+//     });
     
-    navLeft.addEventListener('mouseleave', function() {
-    photoLeft.classList.toggle('inactive');
-    });
+//     navLeft.addEventListener('mouseleave', function() {
+//     photoLeft.classList.toggle('inactive');
+//     });
 
-});
+// });
 
 // Ref recuperation
 
@@ -81,8 +81,8 @@ jQuery(document).ready(function() {
 // Boutons chargements
 
 jQuery(document).ready(function($) {
-    var offset = 12; // A variabiliser pour la photo
-    var $loadButton = $('.load-more'); // Sélectionnez le bouton de chargement
+    var offset = 12; 
+    var $loadButton = $('.load-more'); 
 
     $loadButton.on('click', function() {
         
@@ -94,7 +94,6 @@ jQuery(document).ready(function($) {
                 offset: offset,
             },
             success: function(response) {
-                console.log(response);
 
                 if (response.length > 0) {
                     response.forEach(function(photo) {
@@ -102,6 +101,7 @@ jQuery(document).ready(function($) {
                     });
 
                     offset += 12; 
+
                 } else {
 
                     $loadButton.hide();

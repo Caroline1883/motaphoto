@@ -452,7 +452,6 @@ footer ul {
   }
 }
 .contactnav .photonav {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 19px;
@@ -476,12 +475,17 @@ footer ul {
   position: absolute;
   top: 0;
   left: 0;
+  display: none;
 }
 .contactnav .photoarrows {
   display: flex;
   flex-direction: row;
   gap: 30px;
   align-items: center;
+}
+
+.navright:hover .photonav--photo a img {
+  display: flex;
 }
 
 .upsell {

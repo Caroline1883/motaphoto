@@ -121,7 +121,7 @@
             $next_image_url = esc_url($imagenext_info[0]); 
           } 
 
-          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright inactive" alt="' .$alt_text_next . '"></a>';
+          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright" alt="' .$alt_text_next . '"></a>';
         }
 
 
@@ -139,7 +139,7 @@
     ?>
     <a class="navleft" href="<?php echo esc_url($previous_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/previous.svg'; ?>" alt="Navigation gauche"></a>
     <?php } else { ?>
-    <a class="navleft inactive" href="#"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/next.svg'; ?>" alt="Navigation gauche"></a>
+    <a class="navleft inactive" href="#"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/previous.svg'; ?>" alt="Navigation gauche"></a>
     <?php } ?>
 
 
@@ -148,9 +148,9 @@
       if (!empty($next_post)) {
       $next_post_url = get_permalink($next_post);
     ?>
-    <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite"></a>
+    <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/next.svg'; ?>" alt="Navigation droite"></a>
     <?php } else { ?>
-    <a class="navright inactive" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/right.png'; ?>" alt="Navigation droite"></a>
+    <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/next.svg'; ?>" alt="Navigation droite"></a>
     <?php } ?>
   
   </div>
