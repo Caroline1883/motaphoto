@@ -121,7 +121,7 @@
             $next_image_url = esc_url($imagenext_info[0]); 
           } 
 
-          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright" alt="' .$alt_text_next . '"></a>';
+          echo '<a href="' . esc_url(get_permalink()) . '"><img src="' . $next_image_url . '" class="photoright inactive" alt="' .$alt_text_next . '"></a>';
         }
 
 
@@ -150,7 +150,7 @@
     ?>
     <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/next.svg'; ?>" alt="Navigation droite"></a>
     <?php } else { ?>
-    <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/next.svg'; ?>" alt="Navigation droite"></a>
+    <a class="navright" href="<?php echo esc_url($next_post_url); ?>"><img src="<?php echo esc_url(get_template_directory_uri()) . '/assets/img/previous.svg'; ?>" alt="Navigation droite"></a>
     <?php } ?>
   
   </div>
