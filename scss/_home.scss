@@ -30,9 +30,9 @@
 } 
 
 .photolist{
-    padding: 80px 0px 64px 0px;
+    padding: 80px 146px 64px 146px;
     @media screen and (max-width: $mobile-breakpoint) {
-        padding-top: 35px;
+        padding: 35px 0px 0px 0px;
           }
 
 }

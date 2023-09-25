@@ -613,10 +613,10 @@ footer ul {
 }
 
 .photolist {
-  padding: 80px 0px 64px 0px;
+  padding: 80px 146px 64px 146px;
 }
 @media screen and (max-width: 768px) {
   .photolist {
-    padding-top: 35px;
+    padding: 35px 0px 0px 0px;
   }
 }/*# sourceMappingURL=style.css.map */
