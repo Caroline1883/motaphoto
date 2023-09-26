@@ -47,29 +47,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
 // Navigation
 
-document.addEventListener('DOMContentLoaded', function() {
-    const navRight = document.querySelector('.navright');
-    const navLeft = document.querySelector('.navleft');
-    const photoRight = document.querySelector('.photoright');
-    const photoLeft = document.querySelector('.photoleft');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const navRight = document.querySelector('.navright');
+//     const navLeft = document.querySelector('.navleft');
+//     const photoRight = document.querySelector('.photoright');
+//     const photoLeft = document.querySelector('.photoleft');
 
-    navRight.addEventListener('mouseenter', function() {
-    photoRight.classList.toggle('inactive');
-    });
+//     navRight.addEventListener('mouseenter', function() {
+//     photoRight.classList.toggle('inactive');
+//     });
 
-    navRight.addEventListener('mouseleave', function() {
-    photoRight.classList.toggle('inactive');
-    });
+//     navRight.addEventListener('mouseleave', function() {
+//     photoRight.classList.toggle('inactive');
+//     });
 
-    navLeft.addEventListener('mouseenter', function() {
-    photoLeft.classList.toggle('inactive');
-    });
+//     navLeft.addEventListener('mouseenter', function() {
+//     photoLeft.classList.toggle('inactive');
+//     });
     
-    navLeft.addEventListener('mouseleave', function() {
-    photoLeft.classList.toggle('inactive');
-    });
+//     navLeft.addEventListener('mouseleave', function() {
+//     photoLeft.classList.toggle('inactive');
+//     });
 
-});
+// });
 
 // Ref recuperation
 
@@ -155,6 +155,7 @@ jQuery(document).ready(function($) {
 
 jQuery(document).ready(function($) {
 
+
     // Formats + Categories recuperation
     $.ajax({
         type: 'POST',
@@ -179,25 +180,37 @@ jQuery(document).ready(function($) {
     });
     
 
-    // Gérez la soumission du formulaire de filtre comme précédemment
-    // $('#photo-filters').on('submit', function(e) {
-    //     e.preventDefault();
+    $('#photo-filters').on('submit', function(e) {
+        e.preventDefault();
 
-    //     var format = $('#format').val();
-    //     var category = $('#category').val();
+        var format = $('#format').val();
+        var category = $('#category').val();
 
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: ajax_data.ajaxurl,
-    //         data: {
-    //             action: 'filter_photos',
-    //             format: format,
-    //             category: category,
-    //         },
-    //         success: function(response) {
-    //             // Mettez à jour la liste des photos avec les résultats de la requête
-    //             $('.upsell .upsell_block').html(response);
-    //         },
-    //     });
-    // });
+        console.log('Format sélectionné : ' + format);
+        console.log('Catégorie sélectionnée : ' + category);
+
+        $.ajax({
+            type: 'POST',
+            url: ajax_data.ajaxurl,
+            data: {
+                action: 'filter_photos',
+                format: format,
+                category: category,
+            },
+
+            success: function(response) {
+                console.log('Réponse du serveur :', response);
+                if (response.length > 0) {
+                    response.forEach(function(photo) {
+                        $('.upsell_block').append(photo);
+                        
+                    });
+
+                } else {
+
+                    $loadButton.hide();
+                }
+            },
+        });
+    });
 });

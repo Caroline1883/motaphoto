@@ -207,6 +207,8 @@ add_action('wp_ajax_nopriv_get_photo_cats', 'get_photo_cats');
 function filter_photos() {
     $format = $_POST['format'];
     $category = $_POST['category'];
+    var_dump($format);
+    var_dump($category);
 
     $args = array(
         'post_type' => 'single-photo',
@@ -215,31 +217,63 @@ function filter_photos() {
         'order' => 'ASC',
     );
 
+    $tax_query = array();
+
     if (!empty($format)) {
-        // Ajoutez une condition pour filtrer par format
-        // par exemple : $args['meta_key'] = 'format'; $args['meta_value'] = $format;
+        $tax_query[] = array(
+            'taxonomy' => 'format', 
+            'field' => 'name', 
+            'terms' => $format,
+        );
     }
 
     if (!empty($category)) {
-        // Ajoutez une condition pour filtrer par catégorie
-        // par exemple : $args['tax_query'] = array(array('taxonomy' => 'photocat', 'field' => 'id', 'terms' => $category));
+        $tax_query[] = array(
+            'taxonomy' => 'photocat', 
+            'field' => 'name', 
+            'terms' => $category,
+        );
     }
 
+    if (!empty($tax_query)) {
+        $args['tax_query'] = $tax_query;
+    }
     $query = new WP_Query($args);
+    $photos = array();
 
     if ($query->have_posts()) {
-        ob_start();
+
         while ($query->have_posts()) {
             $query->the_post();
-            // Affichez vos photos ici comme vous le faites déjà
-            // Utilisez la même structure que dans votre boucle actuelle
-        }
-        $output = ob_get_clean();
-        wp_reset_postdata();
-        echo $output;
+            $thumbnail_id = get_post_thumbnail_id();
+    
+                if ($thumbnail_id) {
+                    $image_info = wp_get_attachment_image_src($thumbnail_id, 'full');
+                    $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                }
+    
+                $photo_html = '
+                    <div class="photo-container">
+                        <div class="photo_block">
+                            <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+                        </div>
+                        <div class="overlay">
+                            <div class="icons eye-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo"></div>
+                            <div class="icons fullscreen-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo"></div>
+                        </div>
+                    </div>';
+    
+                $photos[] = $photo_html;
+            }
+
+
     } else {
         echo 'Aucune photo trouvée';
     }
+
+    var_dump($query->request);
+    var_dump($query->found_posts);
+    wp_send_json($photos);
 
     die();
 }
