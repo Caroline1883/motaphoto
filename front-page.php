@@ -30,10 +30,21 @@ if ($photo_post->have_posts()) {
 }
 ?>
 
-
 </section>
 
 <section class="photolist">
+
+<form id="photo-filters">
+
+    <select name="category" id="category">
+    </select>
+
+    <select name="format" id="format">
+    </select>
+
+    <input type="submit" value="Filtrer">
+</form>
+
     
     <div class="upsell_block">
         <?php echo get_template_part('template-parts/photo_block'); ?>

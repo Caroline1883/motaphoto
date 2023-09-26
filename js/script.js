@@ -150,3 +150,54 @@ jQuery(document).ready(function($) {
         });
     });
 });
+
+// Filters / Orders
+
+jQuery(document).ready(function($) {
+
+    // Formats + Categories recuperation
+    $.ajax({
+        type: 'POST',
+        url: ajax_data.ajaxurl,
+        data: {
+            action: 'get_photo_formats',
+        },
+        success: function(response) {
+             $('#format').append(response);
+        },
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: ajax_data.ajaxurl,
+        data: {
+            action: 'get_photo_cats',
+        },
+        success: function(response) {
+             $('#category').append(response);
+        },
+    });
+    
+
+    // Gérez la soumission du formulaire de filtre comme précédemment
+    // $('#photo-filters').on('submit', function(e) {
+    //     e.preventDefault();
+
+    //     var format = $('#format').val();
+    //     var category = $('#category').val();
+
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: ajax_data.ajaxurl,
+    //         data: {
+    //             action: 'filter_photos',
+    //             format: format,
+    //             category: category,
+    //         },
+    //         success: function(response) {
+    //             // Mettez à jour la liste des photos avec les résultats de la requête
+    //             $('.upsell .upsell_block').html(response);
+    //         },
+    //     });
+    // });
+});

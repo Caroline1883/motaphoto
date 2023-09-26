@@ -167,3 +167,82 @@ function load_all_photos() {
 
 add_action('wp_ajax_load_all_photos', 'load_all_photos');
 add_action('wp_ajax_nopriv_load_all_photos', 'load_all_photos');
+
+
+// Filters & orders
+
+function get_photo_formats() {
+    $formats = get_terms('format', array('taxonomy' => 'format', 'fields' => 'names'));
+
+    if (!empty($formats)) {
+        $output = '<option value="">Formats</option>';
+        foreach ($formats as $format) {
+            $output .= '<option value="' . $format . '">' . $format . '</option>';
+        }
+        echo $output;
+    }
+
+    die();
+}
+
+function get_photo_cats() {
+    $photocats = get_terms('photocat', array('taxonomy' => 'photocat', 'fields' => 'names'));
+
+    if (!empty($photocats)) {
+        $output = '<option value="">Catégories</option>';
+        foreach ($photocats as $photocat) {
+            $output .= '<option value="' . $photocat . '">' . $photocat . '</option>';
+        }
+        echo $output;
+    }
+
+    die();
+}
+
+add_action('wp_ajax_get_photo_formats', 'get_photo_formats');
+add_action('wp_ajax_nopriv_get_photo_formats', 'get_photo_formats');
+add_action('wp_ajax_get_photo_cats', 'get_photo_cats');
+add_action('wp_ajax_nopriv_get_photo_cats', 'get_photo_cats');
+
+function filter_photos() {
+    $format = $_POST['format'];
+    $category = $_POST['category'];
+
+    $args = array(
+        'post_type' => 'single-photo',
+        'posts_per_page' => -1,
+        'orderby' => 'date',
+        'order' => 'ASC',
+    );
+
+    if (!empty($format)) {
+        // Ajoutez une condition pour filtrer par format
+        // par exemple : $args['meta_key'] = 'format'; $args['meta_value'] = $format;
+    }
+
+    if (!empty($category)) {
+        // Ajoutez une condition pour filtrer par catégorie
+        // par exemple : $args['tax_query'] = array(array('taxonomy' => 'photocat', 'field' => 'id', 'terms' => $category));
+    }
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        ob_start();
+        while ($query->have_posts()) {
+            $query->the_post();
+            // Affichez vos photos ici comme vous le faites déjà
+            // Utilisez la même structure que dans votre boucle actuelle
+        }
+        $output = ob_get_clean();
+        wp_reset_postdata();
+        echo $output;
+    } else {
+        echo 'Aucune photo trouvée';
+    }
+
+    die();
+}
+
+add_action('wp_ajax_filter_photos', 'filter_photos');
+add_action('wp_ajax_nopriv_filter_photos', 'filter_photos');
