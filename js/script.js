@@ -78,14 +78,14 @@ jQuery(document).ready(function() {
     jQuery('#ref-photo').val(acfValue).change(); 
 });
 
-// Boutons chargements
+// Loading button home
 
 jQuery(document).ready(function($) {
     var offset = 12; 
     var $loadButton = $('.load-more'); 
 
     $loadButton.on('click', function() {
-        
+            
         $.ajax({
             type: 'POST',
             url: ajax_data.ajaxurl, 
@@ -111,4 +111,38 @@ jQuery(document).ready(function($) {
     });
 });
 
+// Loading button single photo
 
+jQuery(document).ready(function($) {
+    var offset = 3; 
+    var $loadButton = $('.load-all'); 
+
+    $loadButton.on('click', function() {
+        var currentPostCatID = $(this).data('current-post-cat-id'); 
+        console.log(currentPostCatID);
+
+        
+        $.ajax({
+            type: 'POST',
+            url: ajax_data.ajaxurl, 
+            data: {
+                action: 'load_all_photos',
+                offset: offset,
+                currentPostCatID: currentPostCatID,
+            },
+            success: function(response) {
+
+                if (response.length > 0) {
+                    response.forEach(function(photo) {
+                        $('.upsell .upsell_block').append(photo);
+                    });
+
+                    offset += response.length; 
+
+                    $loadButton.hide();
+
+                } 
+            },
+        });
+    });
+});

@@ -45,6 +45,7 @@
     <div class="pic">
       <?php
       $thumbnail_id = get_post_thumbnail_id();
+      $photocat_term_id = get_field('photocat');
       if ($thumbnail_id) {
         $image_info = wp_get_attachment_image_src($thumbnail_id, 'full');
         $file_name = basename($image_info[0]);
@@ -165,7 +166,7 @@
   <div class="upsell_block"> <?php echo get_template_part('template-parts/photo_block'); ?></div>
   
   <div class="load">
-    <button class="wpcf7-submit">Toutes les photos</button>
+  <button class="wpcf7-submit load-all" data-current-post-cat-id="<?php echo $photocat_term_id; ?>">Toutes les photos</button>
   </div>
 
 
