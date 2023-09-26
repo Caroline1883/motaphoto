@@ -116,12 +116,12 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
     var offset = 3; 
     var $loadButton = $('.load-all'); 
+    var $upsellBlock = $('.upsell .upsell_block');
 
     $loadButton.on('click', function() {
         var currentPostCatID = $(this).data('current-post-cat-id'); 
         console.log(currentPostCatID);
 
-        
         $.ajax({
             type: 'POST',
             url: ajax_data.ajaxurl, 
@@ -131,17 +131,21 @@ jQuery(document).ready(function($) {
                 currentPostCatID: currentPostCatID,
             },
             success: function(response) {
-
                 if (response.length > 0) {
                     response.forEach(function(photo) {
-                        $('.upsell .upsell_block').append(photo);
+                        $upsellBlock.append(photo);
                     });
 
-                    offset += response.length; 
+                    offset += response.length;
+                    var totalPhotos = response.length;
 
+                    if (offset >= totalPhotos) {
+                        $loadButton.hide();
+                    }
+
+                } else {
                     $loadButton.hide();
-
-                } 
+                }
             },
         });
     });
