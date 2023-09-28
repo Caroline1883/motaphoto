@@ -42,7 +42,14 @@ if ($photo_post->have_posts()) {
     <select name="format" id="format">
     </select>
 
-    <input type="submit" value="Filtrer">
+</form>
+
+<form id="photo-order">
+
+    <select name="order" id="order">Trier par</select>
+
+
+
 </form>
 
     

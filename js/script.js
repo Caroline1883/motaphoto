@@ -156,7 +156,6 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
 
 
-    // Formats + Categories recuperation
     $.ajax({
         type: 'POST',
         url: ajax_data.ajaxurl,
@@ -179,40 +178,54 @@ jQuery(document).ready(function($) {
         },
     });
     
+    $(document).ready(function() {
 
-    $('#photo-filters').on('submit', function(e) {
-        e.preventDefault();
-
-        var format = $('#format').val();
-        var category = $('#category').val();
-        var $loadButton = $('.load-more'); 
-
-        console.log('Format sélectionné : ' + format);
-        console.log('Catégorie sélectionnée : ' + category);
-
-        $.ajax({
-            type: 'POST',
-            url: ajax_data.ajaxurl,
-            data: {
-                action: 'filter_photos',
-                format: format,
-                category: category,
-            },
-
-            success: function(response) {
-                console.log('Réponse du serveur :', response);
-                if (response.length > 0) {
-                    $('.upsell_block').empty();
-                    $loadButton.hide();
-                    response.forEach(function(photo) {
-                        $('.upsell_block').append(photo);                        
-                    });
-
-                } else {
-
-                    $loadButton.hide();
-                }
-            },
+        var $categorySelect = $('#category');
+        var $formatSelect = $('#format');
+        var $loadButton = $('.load-more');
+        var $upsellBlock = $('.upsell_block');
+    
+   
+        function filterPhotos() {
+            var format = $formatSelect.val();
+            var category = $categorySelect.val();
+    
+            console.log('Format sélectionné : ' + format);
+            console.log('Catégorie sélectionnée : ' + category);
+    
+            $.ajax({
+                type: 'POST',
+                url: ajax_data.ajaxurl,
+                data: {
+                    action: 'filter_photos',
+                    format: format,
+                    category: category,
+                },
+    
+                success: function(response) {
+                    console.log('Réponse du serveur :', response);
+                    if (response.length > 0) {
+                        $upsellBlock.empty();
+                        $loadButton.hide();
+                        response.forEach(function(photo) {
+                            $upsellBlock.append(photo);
+                        });
+                    } else {
+                        $loadButton.hide();
+                    }
+                },
+            });
+        }
+    
+  
+        $categorySelect.on('change', function() {
+            filterPhotos(); 
+        });
+    
+        $formatSelect.on('change', function() {
+            filterPhotos(); 
         });
     });
+    
+
 });
