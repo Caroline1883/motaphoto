@@ -617,5 +617,32 @@ footer ul {
 @media screen and (max-width: 768px) {
   .photolist {
     padding: 35px 0px 0px 0px;
+    flex-direction: column;
   }
+}
+.photolist .filters-order {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+@media screen and (max-width: 768px) {
+  .photolist .filters-order {
+    flex-direction: column;
+  }
+}
+.photolist .filters-order select {
+  font-size: 12px;
+  height: 40px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: solid 1px #B8BBC2;
+  border-radius: 8px;
+  width: 260px;
+  font-family: "poppins";
+  padding: 12px;
+}
+.photolist .filters-order #photo-filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 36px;
 }/*# sourceMappingURL=style.css.map */

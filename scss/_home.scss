@@ -30,8 +30,39 @@
 } 
 
 .photolist{
+    
     padding: 80px 146px 64px 146px;
+
     @media screen and (max-width: $mobile-breakpoint) {
         padding: 35px 0px 0px 0px;
+        flex-direction: column;
           }
-}
+    
+          .filters-order{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 40px;
+            @media screen and (max-width: $mobile-breakpoint) {
+                flex-direction: column;
+            }
+
+                select{
+                    font-size: 12px;
+                    height: 40px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    border: solid 1px $form-grey;
+                    border-radius: 8px;
+                    width: 260px;
+                    font-family: 'poppins';
+                    padding: 12px;
+                }
+
+                #photo-filters{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 36px;
+                }
+            }
+        }
+    

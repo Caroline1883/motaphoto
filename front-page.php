@@ -34,24 +34,28 @@ if ($photo_post->have_posts()) {
 
 <section class="photolist">
 
-<form id="photo-filters">
+    <div class="filters-order">
 
-    <select name="category" id="category">
-    </select>
+    <form id="photo-filters">
 
-    <select name="format" id="format">
-    </select>
+        <select name="category" id="category">
+        </select>
 
-</form>
+        <select name="format" id="format">
+        </select>
 
-<form id="photo-order">
+    </form>
 
-    <select name="order" id="order">Trier par</select>
+    <form id="photo-order">
 
+        <select name="order" id="order">
+            <option value="default">Trier par</option>
+            <option value="asc">Des plus récentes aux plus anciennes </option>
+            <option value="des">Des plus anciennes aux plus récentes </option>
+        </select>
+    </form>
 
-
-</form>
-
+    </div>
     
     <div class="upsell_block">
         <?php echo get_template_part('template-parts/photo_block'); ?>
