@@ -626,7 +626,7 @@ footer ul {
   justify-content: space-between;
   padding-bottom: 40px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .photolist .filters-order {
     flex-direction: column;
     align-items: center;
