@@ -207,8 +207,6 @@ add_action('wp_ajax_nopriv_get_photo_cats', 'get_photo_cats');
 function filter_photos() {
     $format = $_POST['format'];
     $category = $_POST['category'];
-    var_dump($format);
-    var_dump($category);
 
     $args = array(
         'post_type' => 'single-photo',
@@ -238,7 +236,9 @@ function filter_photos() {
     if (!empty($tax_query)) {
         $args['tax_query'] = $tax_query;
     }
+
     $query = new WP_Query($args);
+
     $photos = array();
 
     if ($query->have_posts()) {
@@ -265,17 +265,10 @@ function filter_photos() {
     
                 $photos[] = $photo_html;
             }
-
-
-    } else {
-        echo 'Aucune photo trouvée';
     }
 
-    var_dump($query->request);
-    var_dump($query->found_posts);
     wp_send_json($photos);
 
-    die();
 }
 
 add_action('wp_ajax_filter_photos', 'filter_photos');

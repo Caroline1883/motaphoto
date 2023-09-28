@@ -202,8 +202,7 @@ jQuery(document).ready(function($) {
                 console.log('Réponse du serveur :', response);
                 if (response.length > 0) {
                     response.forEach(function(photo) {
-                        $('.upsell_block').append(photo);
-                        
+                        $('.upsell_block').append(photo);                        
                     });
 
                 } else {
