@@ -185,6 +185,7 @@ jQuery(document).ready(function($) {
 
         var format = $('#format').val();
         var category = $('#category').val();
+        var $loadButton = $('.load-more'); 
 
         console.log('Format sélectionné : ' + format);
         console.log('Catégorie sélectionnée : ' + category);
@@ -201,6 +202,8 @@ jQuery(document).ready(function($) {
             success: function(response) {
                 console.log('Réponse du serveur :', response);
                 if (response.length > 0) {
+                    $('.upsell_block').empty();
+                    $loadButton.hide();
                     response.forEach(function(photo) {
                         $('.upsell_block').append(photo);                        
                     });
