@@ -182,6 +182,7 @@ jQuery(document).ready(function($) {
 
         var $categorySelect = $('#category');
         var $formatSelect = $('#format');
+        var $orderSelect = $('#order');
         var $loadButton = $('.load-more');
         var $upsellBlock = $('.upsell_block');
     
@@ -189,9 +190,11 @@ jQuery(document).ready(function($) {
         function filterPhotos() {
             var format = $formatSelect.val();
             var category = $categorySelect.val();
+            var order = $orderSelect.val();
     
             console.log('Format sélectionné : ' + format);
             console.log('Catégorie sélectionnée : ' + category);
+            console.log('Ordre sélectionné :' + order);
     
             $.ajax({
                 type: 'POST',
@@ -200,6 +203,7 @@ jQuery(document).ready(function($) {
                     action: 'filter_photos',
                     format: format,
                     category: category,
+                    order: order,
                 },
     
                 success: function(response) {
@@ -223,6 +227,10 @@ jQuery(document).ready(function($) {
         });
     
         $formatSelect.on('change', function() {
+            filterPhotos(); 
+        });
+
+        $orderSelect.on('change', function() {
             filterPhotos(); 
         });
     });

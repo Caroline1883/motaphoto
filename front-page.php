@@ -49,9 +49,9 @@ if ($photo_post->have_posts()) {
     <form id="photo-order">
 
         <select name="order" id="order">
-            <option value="default">Trier par</option>
+            <option value="asc">Trier par</option>
             <option value="asc">Des plus récentes aux plus anciennes </option>
-            <option value="des">Des plus anciennes aux plus récentes </option>
+            <option value="desc">Des plus anciennes aux plus récentes </option>
         </select>
     </form>
 

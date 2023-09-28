@@ -207,12 +207,13 @@ add_action('wp_ajax_nopriv_get_photo_cats', 'get_photo_cats');
 function filter_photos() {
     $format = $_POST['format'];
     $category = $_POST['category'];
+    $order = $_POST['order'];
 
     $args = array(
         'post_type' => 'single-photo',
         'posts_per_page' => -1,
         'orderby' => 'date',
-        'order' => 'ASC',
+        'order' => $order,
     );
 
     $tax_query = array();
