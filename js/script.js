@@ -47,80 +47,69 @@ document.addEventListener('DOMContentLoaded', function() {
   
 // Navigation
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const navRight = document.querySelector('.navright');
-//     const navLeft = document.querySelector('.navleft');
-//     const photoRight = document.querySelector('.photoright');
-//     const photoLeft = document.querySelector('.photoleft');
 
-//     navRight.addEventListener('mouseenter', function() {
-//     photoRight.classList.toggle('inactive');
-//     });
+// jQuery functions
 
-//     navRight.addEventListener('mouseleave', function() {
-//     photoRight.classList.toggle('inactive');
-//     });
+(function($){
 
-//     navLeft.addEventListener('mouseenter', function() {
-//     photoLeft.classList.toggle('inactive');
-//     });
+    // navigation
+  
+        if($('.navright').length){
+            $('.navright').on('mouseenter', function(){
+                $('.photoright').toggle('inactive');
+            })
+            $('.navright').on('mouseleave', function(){
+                $('.photoright').toggle('inactive');
+            })
+        }
+
+        if($('.navleft').length){
+            $('.navleft').on('mouseenter', function(){
+                $('.photoleft').toggle('inactive');
+            })
+            $('.navleft').on('mouseleave', function(){
+                $('.photoleft').toggle('inactive');
+            })
+        }
     
-//     navLeft.addEventListener('mouseleave', function() {
-//     photoLeft.classList.toggle('inactive');
-//     });
 
-// });
+    // reference requisition script
+    $('#ref-photo').val($('#refer h4').text().trim()); 
 
-// Ref recuperation
-
-jQuery(document).ready(function() {
-    var acfValue = jQuery('#refer h4').text().trim(); 
-    jQuery('#ref-photo').val(acfValue).change(); 
-});
-
-// Loading button home
-
-jQuery(document).ready(function($) {
-    var offset = 12; 
-    var $loadButton = $('.load-more'); 
-
-    $loadButton.on('click', function() {
-            
+    // Loading buttons
+    // Loading button home
+    let offsetHome = 12; 
+    $('.load-more').on('click', function() {
         $.ajax({
             type: 'POST',
             url: ajax_data.ajaxurl, 
             data: {
                 action: 'load_more_photos',
-                offset: offset,
+                offset: offsetHome,
+            },
+            beforeSend: function(){
+                $('#loader').show();
             },
             success: function(response) {
-
                 if (response.length > 0) {
                     response.forEach(function(photo) {
                         $('.photolist .upsell_block').append(photo);
                     });
-
-                    offset += 12; 
-
+                    offsetHome += 12;  
                 } else {
-
-                    $loadButton.hide();
+                    $('.load-more').hide();
                 }
+            },
+            complete: function(){
+                $('#loader').hide();
             },
         });
     });
-});
 
-// Loading button single photo
-
-jQuery(document).ready(function($) {
-    var offset = 3; 
-    var $loadButton = $('.load-all'); 
-    var $upsellBlock = $('.upsell .upsell_block');
-
-    $loadButton.on('click', function() {
-        var currentPostCatID = $(this).data('current-post-cat-id'); 
-        console.log(currentPostCatID);
+    // Loading button single photo
+    let offset = 3;
+    $('.load-all').on('click', function() {
+        console.log($(this).data('current-post-cat-id'));
 
         $.ajax({
             type: 'POST',
@@ -128,112 +117,79 @@ jQuery(document).ready(function($) {
             data: {
                 action: 'load_all_photos',
                 offset: offset,
-                currentPostCatID: currentPostCatID,
+                currentPostCatID: $(this).data('current-post-cat-id'),
             },
             success: function(response) {
                 if (response.length > 0) {
                     response.forEach(function(photo) {
-                        $upsellBlock.append(photo);
+                        $('.upsell .upsell_block').append(photo);
                     });
 
                     offset += response.length;
                     var totalPhotos = response.length;
 
                     if (offset >= totalPhotos) {
-                        $loadButton.hide();
+                        $('.load-all').hide();
                     }
 
                 } else {
-                    $loadButton.hide();
+                    $('.load-all').hide();
                 }
             },
         });
     });
-});
 
-// Filters / Orders
+    // Filters Orders
+    // $.ajax({
+    //     type: 'POST',
+    //     url: ajax_data.ajaxurl,
+    //     data: {
+    //         action: 'get_photo_formats',
+    //     },
+    //     success: function(response) {
+    //          $('#format').append(response);
+    //     },
+    // });
 
-jQuery(document).ready(function($) {
+    // $.ajax({
+    //     type: 'POST',
+    //     url: ajax_data.ajaxurl,
+    //     data: {
+    //         action: 'get_photo_cats',
+    //     },
+    //     success: function(response) {
+    //          $('#category').append(response);
+    //     },
+    // });
 
-
-    $.ajax({
-        type: 'POST',
-        url: ajax_data.ajaxurl,
-        data: {
-            action: 'get_photo_formats',
-        },
-        success: function(response) {
-             $('#format').append(response);
-        },
-    });
-
-    $.ajax({
-        type: 'POST',
-        url: ajax_data.ajaxurl,
-        data: {
-            action: 'get_photo_cats',
-        },
-        success: function(response) {
-             $('#category').append(response);
-        },
-    });
-    
-    $(document).ready(function() {
-
-        var $categorySelect = $('#category');
-        var $formatSelect = $('#format');
-        var $orderSelect = $('#order');
-        var $loadButton = $('.load-more');
-        var $upsellBlock = $('.upsell_block');
-    
-   
         function filterPhotos() {
-            var format = $formatSelect.val();
-            var category = $categorySelect.val();
-            var order = $orderSelect.val();
-    
-            console.log('Format sélectionné : ' + format);
-            console.log('Catégorie sélectionnée : ' + category);
-            console.log('Ordre sélectionné :' + order);
-    
             $.ajax({
                 type: 'POST',
                 url: ajax_data.ajaxurl,
                 data: {
                     action: 'filter_photos',
-                    format: format,
-                    category: category,
-                    order: order,
+                    format: $('#format').val(),
+                    category: $('#category').val(),
+                    order: $('#order').val(),
                 },
-    
                 success: function(response) {
                     console.log('Réponse du serveur :', response);
                     if (response.length > 0) {
-                        $upsellBlock.empty();
-                        $loadButton.hide();
+                        $('.upsell_block').empty();
+                        $('.load-all').hide();
                         response.forEach(function(photo) {
-                            $upsellBlock.append(photo);
+                            $('.upsell_block').append(photo);
                         });
                     } else {
-                        $loadButton.hide();
+                        $('.load-all').hide();
                     }
                 },
             });
         }
-    
-  
-        $categorySelect.on('change', function() {
-            filterPhotos(); 
+        $('select').each(function(){
+            $(this).on('change', function(){
+            filterPhotos();
         });
-    
-        $formatSelect.on('change', function() {
-            filterPhotos(); 
         });
 
-        $orderSelect.on('change', function() {
-            filterPhotos(); 
-        });
-    });
-    
-
-});
+})(jQuery)

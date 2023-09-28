@@ -1,3 +1,28 @@
+/* Fonts */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Poppins"), url("../assets/fonts/poppins/Poppins-Light.woff") format("woff"), url("../assets/fonts/poppins/Poppins-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SpaceMono";
+  font-style: italic;
+  font-weight: 700;
+  src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-BoldItalic.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-BoldItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SpaceMono";
+  font-style: italic;
+  font-weight: 400;
+  src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-Italic.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SpaceMono";
+  font-style: normal;
+  font-weight: 400;
+  src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-Regular.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-Regular.woff2") format("woff2");
+}
 .active {
   display: block;
 }
@@ -33,31 +58,13 @@ body main {
   margin: auto;
 }
 
-/* Fonts */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Poppins"), url("../assets/fonts/poppins/Poppins-Light.woff") format("woff"), url("../assets/fonts/poppins/Poppins-Light.woff2") format("woff2");
+#loader {
+  display: none;
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
 }
-@font-face {
-  font-family: "SpaceMono";
-  font-style: italic;
-  font-weight: 700;
-  src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-BoldItalic.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-BoldItalic.woff2") format("woff2");
-}
-@font-face {
-  font-family: "SpaceMono";
-  font-style: italic;
-  font-weight: 400;
-  src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-Italic.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-Italic.woff2") format("woff2");
-}
-@font-face {
-  font-family: "SpaceMono";
-  font-style: normal;
-  font-weight: 400;
-  src: local("SpaceMono"), url("../assets/fonts/spacemono/SpaceMono-Regular.woff") format("woff"), url("../assets/fonts/spacemono/SpaceMono-Regular.woff2") format("woff2");
-}
+
 /* Global style */
 h1, h2, h3, h4 {
   font-family: "SpaceMono";

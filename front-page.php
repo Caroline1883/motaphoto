@@ -39,9 +39,27 @@ if ($photo_post->have_posts()) {
     <form id="photo-filters">
 
         <select name="category" id="category">
+            <?php
+                $photocats = get_terms('photocat', array('taxonomy' => 'photocat', 'fields' => 'names'));
+                if (!empty($photocats)) {
+                    echo '<option value="">Catégories</option>';
+                    foreach ($photocats as $photocat) {
+                    echo '<option value="' . $photocat . '">' . $photocat . '</option>';
+                    }
+                }
+            ?>
         </select>
 
         <select name="format" id="format">
+            <?php
+               $formats = get_terms('format', array('taxonomy' => 'format', 'fields' => 'names'));
+               if (!empty($formats)) {
+                   echo '<option value="">Formats</option>';
+                   foreach ($formats as $format) {
+                   echo '<option value="' . $format . '">' . $format . '</option>';
+                   }
+               }
+            ?>
         </select>
 
     </form>

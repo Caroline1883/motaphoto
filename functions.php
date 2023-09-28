@@ -1,9 +1,8 @@
 <?php
-require_once get_template_directory() . '/menus.php';
+require_once get_template_directory() . '/inc/menus.php';
 add_action('wp_enqueue_scripts', 'mota_enqueue_styles');
 function mota_enqueue_styles() {
         wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css', array(), time());
-        wp_enqueue_script( 'jquery' );
         wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), time(), true);
 
     // Les données que vous souhaitez transmettre à votre script
@@ -171,38 +170,6 @@ add_action('wp_ajax_nopriv_load_all_photos', 'load_all_photos');
 
 // Filters & orders
 
-function get_photo_formats() {
-    $formats = get_terms('format', array('taxonomy' => 'format', 'fields' => 'names'));
-
-    if (!empty($formats)) {
-        $output = '<option value="">Formats</option>';
-        foreach ($formats as $format) {
-            $output .= '<option value="' . $format . '">' . $format . '</option>';
-        }
-        echo $output;
-    }
-
-    die();
-}
-
-function get_photo_cats() {
-    $photocats = get_terms('photocat', array('taxonomy' => 'photocat', 'fields' => 'names'));
-
-    if (!empty($photocats)) {
-        $output = '<option value="">Catégories</option>';
-        foreach ($photocats as $photocat) {
-            $output .= '<option value="' . $photocat . '">' . $photocat . '</option>';
-        }
-        echo $output;
-    }
-
-    die();
-}
-
-add_action('wp_ajax_get_photo_formats', 'get_photo_formats');
-add_action('wp_ajax_nopriv_get_photo_formats', 'get_photo_formats');
-add_action('wp_ajax_get_photo_cats', 'get_photo_cats');
-add_action('wp_ajax_nopriv_get_photo_cats', 'get_photo_cats');
 
 function filter_photos() {
     $format = $_POST['format'];
