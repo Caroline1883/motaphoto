@@ -34,7 +34,7 @@
     padding: 80px 146px 64px 146px;
 
     @media screen and (max-width: $mobile-breakpoint) {
-        padding: 35px 0px 0px 0px;
+        padding: 35px 0px 22px 0px;
         flex-direction: column;
           }
     
@@ -44,6 +44,8 @@
             padding-bottom: 40px;
             @media screen and (max-width: $mobile-breakpoint) {
                 flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
 
                 select{
@@ -56,12 +58,22 @@
                     width: 260px;
                     font-family: 'poppins';
                     padding: 12px;
+                    @media screen and (max-width: $mobile-breakpoint) {
+                        flex-direction: column;
+                    }
                 }
 
                 #photo-filters{
                     display: flex;
                     justify-content: space-between;
                     gap: 36px;
+                    @media screen and (max-width: $mobile-breakpoint) {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 0px;
+                    }
+                    
                 }
             }
         }
