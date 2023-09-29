@@ -42,8 +42,16 @@
                 ?>
             </div>
             <div class="overlay">
-                <div class="icons eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                <div class="icons fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo"></div>    
+                <div class="icons eye-icon">
+                    <a href="<?php echo esc_url(get_permalink()); ?>">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo">
+                    </a>
+                </div>
+                <div class="icons fullscreen-icon">
+                    <a href="#">
+                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
+                    </a>
+                </div>    
             </div>
         </div>
         <?php
@@ -81,8 +89,16 @@
                 ?>
             </div>
             <div class="overlay">
-                <div class="icons eye-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                <div class="icons fullscreen-icon"><img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo"></div>    
+                <div class="icons eye-icon">
+                    <a href="<?php echo esc_url(get_permalink()); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo">
+                    </a>
+                </div>
+                <div class="icons fullscreen-icon">
+                    <a class="lighthousescreen">
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
+                    </a>
+                </div>    
             </div>
         </div>
         <?php

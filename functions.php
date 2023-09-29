@@ -96,8 +96,16 @@ function load_more_photos() {
                         <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
                     </div>
                     <div class="overlay">
-                        <div class="icons eye-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                        <div class="icons fullscreen-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo"></div>
+                        <div class="icons eye-icon">
+                            <a href="'. esc_url(get_permalink()).'">
+                                <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo">
+                            </a>
+                        </div>
+                        <div class="icons fullscreen-icon">
+                            <a href="#">
+                                <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
+                            </a>
+                        </div>
                     </div>
                 </div>';
 
@@ -146,15 +154,23 @@ function load_all_photos() {
             }
 
             $photo_html = '
-                <div class="photo-container">
-                    <div class="photo_block">
-                        <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
-                    </div>
-                    <div class="overlay">
-                        <div class="icons eye-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                        <div class="icons fullscreen-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo"></div>
-                    </div>
-                </div>';
+            <div class="photo-container">
+            <div class="photo_block">
+                <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+            </div>
+            <div class="overlay">
+                <div class="icons eye-icon">
+                    <a href="'. esc_url(get_permalink()).'">
+                        <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo">
+                    </a>
+                </div>
+                <div class="icons fullscreen-icon">
+                    <a href="#">
+                        <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
+                    </a>
+                </div>
+            </div>
+            </div>';
 
             $photos[] = $photo_html;
         }
@@ -221,15 +237,23 @@ function filter_photos() {
                 }
     
                 $photo_html = '
-                    <div class="photo-container">
-                        <div class="photo_block">
-                            <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+                <div class="photo-container">
+                    <div class="photo_block">
+                        <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+                    </div>
+                    <div class="overlay">
+                        <div class="icons eye-icon">
+                            <a href="'. esc_url(get_permalink()).'">
+                                <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo">
+                            </a>
                         </div>
-                        <div class="overlay">
-                            <div class="icons eye-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo"></div>
-                            <div class="icons fullscreen-icon"><img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo"></div>
+                        <div class="icons fullscreen-icon">
+                            <a href="#">
+                                <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
+                            </a>
                         </div>
-                    </div>';
+                    </div>
+                </div>';
     
                 $photos[] = $photo_html;
             }
