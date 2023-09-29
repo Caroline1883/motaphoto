@@ -44,13 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 );
 
-  
-// Navigation
+
 
 
 // jQuery functions
 
 (function($){
+
+
 
     // navigation
   
