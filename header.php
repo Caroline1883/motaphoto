@@ -22,25 +22,12 @@
                     'theme_location' => 'main-menu',
                     'container'      => false, // without WordPress container
                     'walker'         => new Mota_Walker_Nav_Menu(),
-                    'menu_class'     => 'desktop-menu',    
+                    // 'menu_class'     => 'desktop-menu',    
                 ]);
                 ?>
             </nav>
-        </div>
-        <div class="mobile-menu">
-           <div class="hamburger">☰</div>
-           <div class="cross inactive">&#10006</div>
+            <div class="hamburger">☰</div>
+            <div class="cross">&#10006</div>
         </div>
     </header>
-
-    <nav class="fullscreen inactive">
-        <?php
-            wp_nav_menu([
-                'theme_location' => 'main-menu',
-                'container'      => false, // without WP container
-                'walker'         => new Mota_Walker_Nav_Menu(),
-                'menu_class'     => 'fullscreen-menu',    
-                ]);
-            ?>
-    </nav>
        

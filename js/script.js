@@ -4,19 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const menuToggle = document.querySelector('.hamburger');
     const menuCross = document.querySelector('.cross');
-    const fullScreen = document.querySelector('.fullscreen');
+    const fullScreen = document.querySelector("nav");
     const menuLis = document.querySelectorAll('li')
     const modalOverlay = document.querySelector('.popup-overlay');
     const menuContact = document.querySelectorAll('.contact');
 
     menuToggle.addEventListener('click', toggleMenu);
-    menuCross.addEventListener('click', toggleMenu);
+    menuCross.addEventListener('click', crossMenu);
+
        menuContact.forEach(item => {
             item.onclick = function() {
                 modalOverlay.style.display = "block";
-                fullScreen.classList.add('inactive');
-                menuCross.classList.add('inactive');
-                menuToggle.classList.remove('inactive');
+                fullScreen.style.display = "none";
+                menuCross.style.display = "none";
+                menuToggle.style.display = "block";
                }
             });
 
@@ -27,10 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
     function toggleMenu() {
-        fullScreen.classList.toggle('inactive');
-        menuCross.classList.toggle('inactive');
-        menuToggle.classList.toggle('inactive');
+        fullScreen.style.display = "flex";
+        menuToggle.style.display = "none";
+        menuCross.style.display = "block";
         }
+    
+    function crossMenu() {
+        fullScreen.style.display = "none";
+        menuToggle.style.display = "block";
+        menuCross.style.display = "none";
+    }
         
         function menuLiF() {
         fullScreen.classList.toggle('active');
