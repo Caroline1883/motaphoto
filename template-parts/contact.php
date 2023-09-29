@@ -7,8 +7,6 @@
 
 ?>
 
-
-
 <div class="popup-overlay inactive">
 	<div class="popup-contact">
 		<div class="popup-header">
@@ -18,5 +16,6 @@
 		<?php
 		echo do_shortcode('[contact-form-7 id="600df83" title="Contact"]');
 		?>
+		</div>
 	</div>
 </div>
