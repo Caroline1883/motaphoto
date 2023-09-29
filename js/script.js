@@ -1,64 +1,48 @@
-// Header + Modale
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    const menuToggle = document.querySelector('.hamburger');
-    const menuCross = document.querySelector('.cross');
-    const fullScreen = document.querySelector("nav");
-    const menuLis = document.querySelectorAll('li')
-    const modalOverlay = document.querySelector('.popup-overlay');
-    const menuContact = document.querySelectorAll('.contact');
-
-    menuToggle.addEventListener('click', toggleMenu);
-    menuCross.addEventListener('click', crossMenu);
-
-       menuContact.forEach(item => {
-            item.onclick = function() {
-                modalOverlay.style.display = "block";
-                fullScreen.style.display = "none";
-                menuCross.style.display = "none";
-                menuToggle.style.display = "block";
-               }
-            });
-
-    window.onclick = function(event) {
-        if (event.target == modalOverlay) {
-            modalOverlay.style.display = "none";
-            }
-        }
-        
-    function toggleMenu() {
-        fullScreen.style.display = "flex";
-        menuToggle.style.display = "none";
-        menuCross.style.display = "block";
-        }
-    
-    function crossMenu() {
-        fullScreen.style.display = "none";
-        menuToggle.style.display = "block";
-        menuCross.style.display = "none";
-    }
-        
-        function menuLiF() {
-        fullScreen.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        }
-        
-        menuLis.forEach(menuLi => {
-        menuLi.addEventListener('click', menuLiF);
-        });
-
-    }
-);
-
-
-
-
 // jQuery functions
 
 (function($){
 
+    // menu + modale
 
+    $('.hamburger').on('click', function() {
+        $("nav").css('display', 'flex');
+        $('.hamburger').css('display', 'none');
+        $('.cross').css('display', 'block');
+    });
+
+    $('.cross').on('click', function() {
+        $("nav").css('display', 'none');
+        $('.hamburger').css('display', 'block');
+        $('.cross').css('display', 'none');
+    });
+
+    $('.contact').each(function() {
+        $(this).click(function() {
+            $('.popup-overlay').css('display', 'block');
+            console.log(window.innerWidth);
+            if (window.innerWidth <= 768) {
+                $("nav").css('display', 'none');
+                $('.cross').css('display', 'none');
+                $('.hamburger').css('display', 'block');
+            }
+        });
+    });
+    
+    $(window).click(function(event) {
+        if (event.target == $('.popup-overlay')[0]) {
+            $('.popup-overlay').css('display', 'none');
+        }
+        });
+
+    if (window.innerWidth <= 768) {
+        $('li').each(function(){
+            $(this).click(function(){
+                $("nav").css('display', 'none');
+                $('.hamburger').css('display', 'block');
+                $('.cross').css('display', 'none');
+            });
+        });
+    }
 
     // navigation
   
@@ -146,29 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
     });
-
-    // Filters Orders
-    // $.ajax({
-    //     type: 'POST',
-    //     url: ajax_data.ajaxurl,
-    //     data: {
-    //         action: 'get_photo_formats',
-    //     },
-    //     success: function(response) {
-    //          $('#format').append(response);
-    //     },
-    // });
-
-    // $.ajax({
-    //     type: 'POST',
-    //     url: ajax_data.ajaxurl,
-    //     data: {
-    //         action: 'get_photo_cats',
-    //     },
-    //     success: function(response) {
-    //          $('#category').append(response);
-    //     },
-    // });
 
         function filterPhotos() {
             $.ajax({
