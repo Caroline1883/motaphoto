@@ -21,8 +21,7 @@
                 wp_nav_menu([
                     'theme_location' => 'main-menu',
                     'container'      => false, // without WordPress container
-                    'walker'         => new Mota_Walker_Nav_Menu(),
-                    // 'menu_class'     => 'desktop-menu',    
+                    'walker'         => new Mota_Walker_Nav_Menu(), 
                 ]);
                 ?>
             </nav>
