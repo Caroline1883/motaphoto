@@ -11,10 +11,10 @@
     <div class="lightboxcontainer">
         <button class="lightboxprev">&#8592 précédente</button>
         <div class="lightboxcontainer--photo">
-            <img src="#" alt="">
+            <img id="lightbox-image" src="#" alt="">
             <div class="lightboxcontainer--photometa">
-                <h4>REF</h4>
-                <h4>CAT</h4>
+                <h4 id="ref">REF</h4>
+                <h4 id="cat">CAT</h4>
             </div>
         </div>
         <button class="lightboxnext">suivante &#8594</button>

@@ -4,6 +4,7 @@ add_action('wp_enqueue_scripts', 'mota_enqueue_styles');
 function mota_enqueue_styles() {
         wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css', array(), time());
         wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), time(), true);
+        wp_enqueue_script('lightbox', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), time(), true);
 
     // Les données que vous souhaitez transmettre à votre script
     $ajax_data = array(
@@ -102,9 +103,12 @@ function load_more_photos() {
                             </a>
                         </div>
                         <div class="icons fullscreen-icon">
-                            <a href="#">
-                                <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
-                            </a>
+                            <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
+                            alt="voir la photo"
+                            data-image-src="' . esc_url($image_info[0]) . '"
+                            data-ref="'. get_field('ref');'"
+                            data-cat="'. get_field('photocat');'"
+                            >
                         </div>
                     </div>
                 </div>';
@@ -165,9 +169,12 @@ function load_all_photos() {
                     </a>
                 </div>
                 <div class="icons fullscreen-icon">
-                    <a href="#">
-                        <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
-                    </a>
+                    <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
+                    alt="voir la photo"
+                    data-image-src="' . esc_url($image_info[0]) . '"
+                    data-ref="'. get_field('ref');'"
+                    data-cat="'. get_field('photocat');'"
+                    >
                 </div>
             </div>
             </div>';
@@ -248,10 +255,12 @@ function filter_photos() {
                             </a>
                         </div>
                         <div class="icons fullscreen-icon">
-                            <a href="#">
-                                <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
-                            </a>
-                        </div>
+                            <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
+                            alt="voir la photo"
+                            data-image-src="' . esc_url($image_info[0]) . '"
+                            data-ref="'. get_field('ref');'"
+                            data-cat="'. get_field('photocat');'"
+                            >
                     </div>
                 </div>';
     

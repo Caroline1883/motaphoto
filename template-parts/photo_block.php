@@ -48,9 +48,12 @@
                     </a>
                 </div>
                 <div class="icons fullscreen-icon">
-                    <a href="#">
-                        <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
-                    </a>
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" 
+                    alt="voir la photo"
+                    data-image-src="<?= esc_url($image_info[0]) ?>"
+                    data-ref="<?= get_field('ref');?>"
+                    data-cat="<?= get_field('photocat');?>"
+                    >
                 </div>    
             </div>
         </div>
@@ -95,9 +98,12 @@
                     </a>
                 </div>
                 <div class="icons fullscreen-icon">
-                    <a class="lighthousescreen">
-                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
-                    </a>
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" 
+                    alt="voir la photo"
+                    data-image-src="<?= esc_url($image_info[0]) ?>"
+                    data-ref="<?= get_field('ref');?>"
+                    data-cat="<?= get_field('photocat');?>"
+                    >
                 </div>    
             </div>
         </div>
