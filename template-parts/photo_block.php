@@ -39,6 +39,25 @@
                     } else {
                         echo '<p>Aucune image</p>';
                     }
+
+                    $photocat_id = get_field('photocat');
+                    $photocat_label = ''; // Initialisez la variable en dehors de la condition
+    
+                    if ($photocat_id) {
+                        $photocat_term = get_term($photocat_id); 
+                        if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
+                            $photocat_label = $photocat_term->name;
+                        }
+                    }
+
+                    $image_data = array(
+                        'image_src' => esc_url($image_info[0]),
+                        'ref' => get_field('ref'),
+                        'cat' => esc_html($photocat_label), 
+                    );
+
+                    $images_data[] = $image_data;
+            
                 ?>
             </div>
             <div class="overlay">
@@ -48,22 +67,10 @@
                     </a>
                 </div>
                 <div class="icons fullscreen-icon"
-                    data-image-src="<?= esc_url($image_info[0]) ?>"
-                    data-ref="<?= get_field('ref');?>"
-                    data-cat="<?php
-                        $photocat_id = get_field('photocat');
-                        if ($photocat_id) {
-                            $photocat_term = get_term($photocat_id); 
-                                if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
-                                    $photocat_label = $photocat_term->name;
-                                    echo esc_html($photocat_label);
-                                  } else {
-                                    echo '';
-                                  }
-                                } else {
-                                  echo ''; 
-                                }
-                    ;?>"
+                data-image-src="<?= esc_url($image_info[0]) ?>"
+                data-ref="<?= get_field('ref');?>"
+                data-cat="<?php echo esc_html($photocat_label); ?>"
+                data-index="<?php echo count($images_data) - 1; ?>"
                 >
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
                 </div>    
