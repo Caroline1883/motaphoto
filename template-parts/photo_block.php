@@ -47,13 +47,25 @@
                         <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/Icon_eye.svg" alt="voir la photo">
                     </a>
                 </div>
-                <div class="icons fullscreen-icon">
-                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" 
-                    alt="voir la photo"
+                <div class="icons fullscreen-icon"
                     data-image-src="<?= esc_url($image_info[0]) ?>"
                     data-ref="<?= get_field('ref');?>"
-                    data-cat="<?= get_field('photocat');?>"
-                    >
+                    data-cat="<?php
+                        $photocat_id = get_field('photocat');
+                        if ($photocat_id) {
+                            $photocat_term = get_term($photocat_id); 
+                                if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
+                                    $photocat_label = $photocat_term->name;
+                                    echo esc_html($photocat_label);
+                                  } else {
+                                    echo '';
+                                  }
+                                } else {
+                                  echo ''; 
+                                }
+                    ;?>"
+                >
+                    <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
                 </div>    
             </div>
         </div>
@@ -102,8 +114,21 @@
                     alt="voir la photo"
                     data-image-src="<?= esc_url($image_info[0]) ?>"
                     data-ref="<?= get_field('ref');?>"
-                    data-cat="<?= get_field('photocat');?>"
-                    >
+                    data-cat="<?= 
+                        $photocat_id = get_field('photocat');
+                        if ($photocat_id) {
+                            $photocat_term = get_term($photocat_id); 
+                                if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
+                                    $photocat_label = $photocat_term->name;
+                                    echo esc_html($photocat_label);
+                                  } else {
+                                    echo '';
+                                  }
+                                } else {
+                                  echo ''; 
+                                }
+                    ?>">
+                    <p><?= esc_url(get_template_directory_uri()) ?></p>
                 </div>    
             </div>
         </div>
