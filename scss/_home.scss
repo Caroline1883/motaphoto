@@ -1,3 +1,13 @@
+select {
+    display: block !important;
+    margin-top: 10px;
+    background-color: white;
+  }
+  select option:checked {
+    background-color: $primary-red;
+  }
+  
+
 .hero{
     height: 962px;
     display: flex;
