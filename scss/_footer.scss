@@ -126,10 +126,8 @@ footer{
             font-size: 12px;
             border-radius: 2px;
             border: none;
-            padding-bottom: 36px;
             @media (max-width: $mobile-breakpoint) {
                 width: 190px;
-                padding-bottom: 24px;
               }
 
         }
@@ -199,7 +197,8 @@ footer{
                 flex-direction: column;
                 img{
                     object-fit: contain;
-                    width: 1000px;
+                    max-height: 80vh;
+                    max-width: 1000px;
                 }
             }
 

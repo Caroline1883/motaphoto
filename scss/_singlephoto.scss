@@ -5,6 +5,9 @@
   margin: auto;
   display: flex;
   flex-direction: column;
+  h1{
+    font-weight: 400;
+  }
   @media screen and (max-width: $mobile-breakpoint) {
     height: auto;
     padding-top: 20px;

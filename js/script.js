@@ -80,7 +80,7 @@
                 offset: offsetHome,
             },
             beforeSend: function(){
-                $('#loader').show();
+                $('.load-more').css('cursor','wait');
             },
             success: function(response) {
                 if (response.length > 0) {
@@ -94,6 +94,7 @@
             },
             complete: function(){
                 $('#loader').hide();
+                $('.load-more').css('cursor','auto');
             },
         });
     });

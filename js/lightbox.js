@@ -9,8 +9,8 @@
 
     $('.fullscreen-icon').each(function() {
       $(this).click(function() {
-          console.log($(this).data('ref'));
-          console.log($(this).data('cat'));
+          // console.log($(this).data('ref'));
+          // console.log($(this).data('cat'));
 
           $('.lightbox').css('display', 'block');
           $('#lightbox-image').prop('src', $(this).data('image-src')); 
@@ -25,7 +25,12 @@
       });
     });
 
+    const lightboxlist = [];
     
+    $('.fullscreen-icon').each(function(){
+      lightboxlist.push({src:$(this).data('image-src'),cat:$(this).data('cat'),ref:$(this).data('ref'),index:$(this).data('index')});
+    })
+    console.log(lightboxlist);
 
 
   })(jQuery)

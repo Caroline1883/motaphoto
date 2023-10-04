@@ -35,7 +35,7 @@
                         $image_info = wp_get_attachment_image_src($thumbnail_id, 'full');
                         $file_name = basename($image_info[0]);
                         $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-                        echo '<img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '" />';
+                        echo '<img class="test" src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '" />';
                     } else {
                         echo '<p>Aucune image</p>';
                     }

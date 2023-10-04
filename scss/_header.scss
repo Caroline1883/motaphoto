@@ -38,10 +38,10 @@ header {
     height: 80px;
     align-items: center;
     box-shadow: 0px 4px 4px $shadow;
-    z-index: 100;
     @media (max-width: $mobile-breakpoint) {
         padding: 0px 40px 0px 40px;
         height: 72px;
+        z-index: 3;
       }
 
     img{
