@@ -121,7 +121,6 @@ function load_more_photos() {
                             </a>
                         </div>
                         <div class="icons fullscreen-icon"
-                        id="coucou"
                         data-image-src="' . esc_url($image_data['image_src']) . '"
                         data-ref="' . $image_data['ref'] . '"
                         data-cat="'. $image_data['cat'] .'"
@@ -266,7 +265,25 @@ function filter_photos() {
                 if ($thumbnail_id) {
                     $image_info = wp_get_attachment_image_src($thumbnail_id, 'full');
                     $alt_text = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                } else {
+                    $image_info = '<p>Aucune image</p>';
                 }
+
+                $photocat_id = get_field('photocat');
+                $photocat_label = ''; 
+    
+                $photocat_term = get_term($photocat_id); 
+                if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
+                    $photocat_label = $photocat_term->name;
+                }
+    
+                $image_data = array(
+                    'image_src' => esc_url($image_info[0]),
+                    'ref' => get_field('ref'),
+                    'cat' => esc_html($photocat_label), 
+                );
+    
+                $images_data[] = $image_data;
     
                 $photo_html = '
                 <div class="photo-container">
@@ -279,12 +296,13 @@ function filter_photos() {
                                 <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/Icon_eye.svg" alt="voir la photo">
                             </a>
                         </div>
-                        <div class="icons fullscreen-icon">
+                        <div class="icons fullscreen-icon"
+                        data-image-src="' . esc_url($image_data['image_src']) . '"
+                        data-ref="' . $image_data['ref'] . '"
+                        data-cat="'. $image_data['cat'] .'"
+                        >
                             <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
                             alt="voir la photo"
-                            data-image-src="' . esc_url($image_info[0]) . '"
-                            data-ref="'. get_field('ref');'"
-                            data-cat="'. get_field('photocat');'"
                             >
                     </div>
                 </div>';
