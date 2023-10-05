@@ -26,6 +26,9 @@ button{
     border-radius: 2px;
     border: none;
 }
+button:hover{
+  cursor: pointer;
+}
 
 body{
   background-color: white;

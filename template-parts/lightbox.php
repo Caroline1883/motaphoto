@@ -13,8 +13,8 @@
         <div class="lightboxcontainer--photo">
             <img id="lightbox-image" src="#" alt="">
             <div class="lightboxcontainer--photometa">
-                <h4 id="ref">REF</h4>
-                <h4 id="cat">CAT</h4>
+                <h4 id="ref">ref</h4>
+                <h4 id="cat">cat</h4>
             </div>
         </div>
         <button class="lightboxnext">suivante &#8594</button>

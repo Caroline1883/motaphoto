@@ -147,6 +147,9 @@
                     category: $('#category').val(),
                     order: $('#order').val(),
                 },
+                beforeSend: function(){
+                    $('.load-more').css('cursor','wait');
+                },
                 success: function(response) {
                     console.log('Réponse du serveur :', response);
                     if (response.length > 0) {

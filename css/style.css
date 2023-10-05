@@ -52,6 +52,10 @@ button {
   border: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 body {
   background-color: white;
 }
@@ -645,6 +649,10 @@ footer ul {
   position: absolute;
   top: 11px;
   right: 18px;
+}
+
+.fullscreen-icon:hover {
+  cursor: pointer;
 }
 
 .photo-container:hover .icons,

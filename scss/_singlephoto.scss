@@ -219,8 +219,12 @@
         .fullscreen-icon{
           position: absolute;
           top: 11px;
-          right: 18px;
+          right: 18px;      
         }
+
+        .fullscreen-icon:hover {
+          cursor: pointer;
+        }    
 
       .photo-container:hover .icons, 
       .photo-container:hover .overlay{
