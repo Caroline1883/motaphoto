@@ -1,7 +1,6 @@
 <?php
 /**
  * Template part for lightbox
- *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 

@@ -6,12 +6,10 @@ function mota_enqueue_styles() {
         wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), time(), true);
         wp_enqueue_script('lightbox', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), time(), true);
 
-    // Les données que vous souhaitez transmettre à votre script
     $ajax_data = array(
         'ajaxurl' => admin_url('admin-ajax.php'),
     );
 
-    // Ajoutez ces données en ligne dans le script 'script'
     wp_add_inline_script('script', 'var ajax_data = ' . wp_json_encode($ajax_data) . ';', 'before');
 
 }

@@ -33,7 +33,6 @@ footer{
     width: 100%;
     height: 100%;
     background: #00000060;
-    // display: flex;
     justify-content: center;
     align-items: center;
     top:0;
@@ -67,9 +66,6 @@ footer{
         }
         
     .popup-header{
-        // position: relative;
-        // left: 50%;
-        // transform: translateX(-50%);
 
         img{
             display: block;
@@ -78,17 +74,6 @@ footer{
             height: auto;
           }
         }
-
-    // .popup-close{
-    //     position: absolute;
-    //     top: 10px;
-    //     right: 10px;
-    //     font-size: 24px;
-    //     cursor: pointer;
-    //     border: 1px solid black;
-    //     padding: 5px;
-    //     border-radius: 4px;
-    // }
 
     form{
         width: 263px;
@@ -114,7 +99,7 @@ footer{
             border: solid 1px $form-grey;
             border-radius: 8px;
             max-width: 100%;
-            padding-left: 4px;
+            padding-left: 10px;
         }
     
         .wpcf7-submit{
@@ -129,8 +114,14 @@ footer{
             @media (max-width: $mobile-breakpoint) {
                 width: 190px;
               }
-
         }
+        .wpcf7-submit:hover{
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+
+        
 
     // Affichage mobile à revoir + gestion du bouton
 
@@ -139,17 +130,13 @@ footer{
             border-radius: 8px;
             width: 263px;
             height: 210px;
-            padding-left: 4px;
+            padding: 10px;
             @media (max-width: $mobile-breakpoint) {
                 width: 190px;
                 height: 15vh;
               }
         }
-
-
-
     }
-
     }
 
     // Lightbox modale
@@ -184,9 +171,14 @@ footer{
             background-color: transparent;
             color: white;
             width: 110px;
+            font-weight: 400;
             @media (max-width: $mobile-breakpoint) {
                 position: absolute;
               }
+        }
+        .lightboxnext,
+        .lightboxprev:hover{
+            font-weight: 700;
         }
         .lightboxnext{
             @media (max-width: $mobile-breakpoint) {

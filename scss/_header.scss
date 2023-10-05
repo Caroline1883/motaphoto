@@ -2,9 +2,8 @@
 @import 'variables';
 
 
-/* Ceci est un test */
 /* Animations */
-@keyframes opacity{
+@keyframes fadein{
     from{
         opacity: 0;
         transform: translateY(-80vh)
@@ -12,6 +11,16 @@
     to{
         opacity: 1;
         transform: translateY(0)
+    }
+}
+
+@keyframes fadeout{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        display: none;
     }
 }
 
@@ -73,7 +82,12 @@ header {
             color: black;
             font-size: 14px;
             line-height: 21px;
-            }  
+            font-weight: 400;
+            }
+        
+        a:hover{
+            font-weight: 700;
+        }
         
         @media (max-width: $mobile-breakpoint) {
             position: absolute;
@@ -88,7 +102,7 @@ header {
             gap: 18px;
             background-color: $primary-red;
             height: 100vh;
-            animation: opacity 1s ease-in-out;
+            animation: fadein 1s ease-in-out;
             width: 100%;
             a{
                 color: white;
