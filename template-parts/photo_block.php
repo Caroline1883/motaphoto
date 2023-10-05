@@ -66,9 +66,9 @@
                     </a>
                 </div>
                 <div class="icons fullscreen-icon"
-                data-image-src="<?= esc_url($image_info[0]) ?>"
-                data-ref="<?= get_field('ref');?>"
-                data-cat="<?= esc_html($photocat_label); ?>"
+                data-image-src="<?= esc_url($image_data['image_src']) ?>"
+                data-ref="<?= $image_data['ref'];?>"
+                data-cat="<?= $image_data['cat']; ?>"
                 data-index="<?= count($images_data) - 1; ?>"
                 >
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">
@@ -83,6 +83,7 @@
     endif;
 
 } else {
+
     $args_upsell = array(
         'post_type' => 'single-photo',
         'posts_per_page' => 12,
@@ -109,12 +110,23 @@
                     }
                     $photocat_id = get_field('photocat');
                     $photocat_label = ''; 
+
                     $photocat_term = get_term($photocat_id); 
                     if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
                         $photocat_label = $photocat_term->name;
                     }
+
+                    $image_data = array(
+                        'image_src' => esc_url($image_info[0]),
+                        'ref' => get_field('ref'),
+                        'cat' => esc_html($photocat_label), 
+                    );
+
+                    $images_data[] = $image_data;
+
                 ?>
             </div>
+
             <div class="overlay">
                 <div class="icons eye-icon">
                     <a href="<?php echo esc_url(get_permalink()); ?>">
@@ -122,9 +134,9 @@
                     </a>
                 </div>
                 <div class="icons fullscreen-icon"
-                data-image-src="<?= esc_url($image_info[0]) ?>"
-                data-ref="<?= get_field('ref');?>"
-                data-cat="<?= esc_html($photocat_label); ?>"
+                data-image-src="<?= esc_url($image_data['image_src']) ?>"
+                data-ref="<?= $image_data['ref'];?>"
+                data-cat="<?= $image_data['cat']; ?>"
                 data-index="<?= count($images_data) - 1; ?>"
                 >
                     <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/img/fullscreen.svg" alt="voir la photo">

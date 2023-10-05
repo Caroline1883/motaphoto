@@ -103,12 +103,7 @@ function load_more_photos() {
                             </a>
                         </div>
                         <div class="icons fullscreen-icon">
-                            <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
-                            alt="voir la photo"
-                            data-image-src="' . esc_url($image_info[0]) . '"
-                            data-ref="'. get_field('ref');'"
-                            data-cat="'. get_field('photocat');'"
-                            >
+                            <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" alt="voir la photo">
                         </div>
                     </div>
                 </div>';
