@@ -281,6 +281,7 @@ function filter_photos() {
     $photos = array();
 
     if ($query->have_posts()) {
+        $current_index = 0;
 
         while ($query->have_posts()) {
             $query->the_post();
@@ -300,14 +301,19 @@ function filter_photos() {
                 if (is_object($photocat_term) && property_exists($photocat_term, 'name')) {
                     $photocat_label = $photocat_term->name;
                 }
+
+                $image_data = array();
+
+                $images_data[] = $image_data;
     
                 $image_data = array(
                     'image_src' => esc_url($image_info[0]),
                     'ref' => get_field('ref'),
-                    'cat' => esc_html($photocat_label), 
+                    'cat' => esc_html($photocat_label),
+                    'index' => $current_index,
                 );
     
-                $images_data[] = $image_data;
+                
     
                 $photo_html = '
                 <div class="photo-container">
@@ -324,6 +330,7 @@ function filter_photos() {
                         data-image-src="' . esc_url($image_data['image_src']) . '"
                         data-ref="' . $image_data['ref'] . '"
                         data-cat="'. $image_data['cat'] .'"
+                        data-index="' .$image_data['index'] . '"
                         >
                             <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
                             alt="voir la photo"
@@ -336,6 +343,7 @@ function filter_photos() {
     }
 
     wp_send_json($photos);
+    $current_index++;
 
 }
 

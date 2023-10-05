@@ -10,7 +10,7 @@
   
 
     function updateLightboxList() {
-      lightboxlist.length = 0; l
+      lightboxlist.length = 0; 
   
       $('.fullscreen-icon').each(function(index) {
         const image = {
