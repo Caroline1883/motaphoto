@@ -3,35 +3,37 @@
    * @return {HTMLElement}
    */
 
+  //openLightbox
 
-  (function($){
+  (function($) {
 
+    function openLightbox(imageSrc, ref, cat) {
+      $('.lightbox').css('display', 'block');
+      $('#lightbox-image').prop('src', imageSrc);
+      $('#ref').text(ref);
+      $('#cat').text(cat);
+    }
 
-    $('.fullscreen-icon').each(function() {
-      $(this).click(function() {
-          // console.log($(this).data('ref'));
-          // console.log($(this).data('cat'));
-
-          $('.lightbox').css('display', 'block');
-          $('#lightbox-image').prop('src', $(this).data('image-src')); 
-          $('#ref').text($(this).data('ref')); 
-          $('#cat').text($(this).data('cat'));
-      });
+    $(document).on('click', '.fullscreen-icon', function() {
+      var imageSrc = $(this).data('image-src');
+      var ref = $(this).data('ref');
+      var cat = $(this).data('cat');
+      openLightbox(imageSrc, ref, cat);
     });
-
-    $('.lightboxclose').each(function() {
-    $(this).click(function() {
-        $('.lightbox').css('display', 'none');
-      });
+  
+    $(document).on('click', '.lightboxclose', function() {
+      $('.lightbox').css('display', 'none');
     });
-
+  
     const lightboxlist = [];
-    
-    $('.fullscreen-icon').each(function(){
-      lightboxlist.push({src:$(this).data('image-src'),cat:$(this).data('cat'),ref:$(this).data('ref'),index:$(this).data('index')});
-    })
+    $('.fullscreen-icon').each(function() {
+      lightboxlist.push({
+        src: $(this).data('image-src'),
+        cat: $(this).data('cat'),
+        ref: $(this).data('ref'),
+        index: $(this).data('index')
+      });
+    });
     console.log(lightboxlist);
-
-
-  })(jQuery)
-
+  })(jQuery);
+  
