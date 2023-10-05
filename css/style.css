@@ -718,6 +718,10 @@ footer ul {
   opacity: 1;
 }
 
+label {
+  display: none;
+}
+
 select {
   display: block !important;
   margin-top: 10px;
