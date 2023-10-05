@@ -157,7 +157,6 @@ add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
 function load_all_photos() {
     $offset = $_POST['offset'];
     $currentPostCatID = $_POST['currentPostCatID'];
-
     $args = array(
         'post_type' => 'single-photo',
         'orderby' => 'date',
@@ -178,6 +177,9 @@ function load_all_photos() {
     $photos = array();
 
     if ($query->have_posts()) {
+
+        $current_index_all = 2;
+
         while ($query->have_posts()) {
             $query->the_post();
             $thumbnail_id = get_post_thumbnail_id();
@@ -198,7 +200,8 @@ function load_all_photos() {
             $image_data = array(
                 'image_src' => esc_url($image_info[0]),
                 'ref' => get_field('ref'),
-                'cat' => esc_html($photocat_label), 
+                'cat' => esc_html($photocat_label),
+                'index' => $current_index_all, 
             );
 
             $images_data[] = $image_data;
@@ -218,6 +221,7 @@ function load_all_photos() {
                     data-image-src="' . esc_url($image_data['image_src']) . '"
                     data-ref="' . $image_data['ref'] . '"
                     data-cat="'. $image_data['cat'] .'"
+                    data-index="' .$image_data['index'] . '"
                 >
                     <img src="' . esc_url(get_template_directory_uri()) . '/assets/img/fullscreen.svg" 
                     alt="voir la photo">
@@ -226,6 +230,7 @@ function load_all_photos() {
             </div>';
 
             $photos[] = $photo_html;
+            $current_index_all++;
         }
     }
 

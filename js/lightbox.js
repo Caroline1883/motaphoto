@@ -20,6 +20,7 @@
           index: index
         };
         lightboxlist.push(image);
+        console.log(image);
       });
     }
   
