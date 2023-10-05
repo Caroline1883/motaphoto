@@ -118,7 +118,7 @@ function load_more_photos() {
             $photo_html = '
                 <div class="photo-container">
                     <div class="photo_block">
-                        <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+                        <img class="upsellphoto" src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
                     </div>
                     <div class="overlay">
                         <div class="icons eye-icon">
@@ -209,7 +209,7 @@ function load_all_photos() {
             $photo_html = '
             <div class="photo-container">
             <div class="photo_block">
-                <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+                <img class="upsellphoto" src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
             </div>
             <div class="overlay">
                 <div class="icons eye-icon">
@@ -323,7 +323,7 @@ function filter_photos() {
                 $photo_html = '
                 <div class="photo-container">
                     <div class="photo_block">
-                        <img src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
+                        <img class="upsellphoto" src="' . esc_url($image_info[0]) . '" alt="' . esc_attr($alt_text) . '">
                     </div>
                     <div class="overlay">
                         <div class="icons eye-icon">

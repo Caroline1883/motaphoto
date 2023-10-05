@@ -189,10 +189,19 @@
       object-fit: cover;
       display : flex;
       @media screen and (max-width: $mobile-breakpoint) {
-          width: 318px;
           height: 270px;
+          width: 90%;
             }
     }
+
+
+  .upsellphoto{
+    object-fit: cover;
+    @media screen and (max-width: $mobile-breakpoint) {
+      width: 300px;
+      height: 270px;
+        }
+  }
 
       .overlay {
               position: absolute;
