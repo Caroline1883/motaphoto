@@ -630,7 +630,7 @@ footer ul {
   display: inline-block;
   align-items: center;
   justify-content: center;
-  max-width: 564px;
+  width: 564px;
   height: 495px;
   overflow: hidden;
   object-fit: cover;
@@ -645,6 +645,8 @@ footer ul {
 
 .upsellphoto {
   object-fit: cover;
+  width: 564px;
+  height: 495px;
 }
 @media screen and (max-width: 768px) {
   .upsellphoto {
