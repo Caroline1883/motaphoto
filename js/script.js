@@ -83,11 +83,16 @@
                 $('.load-more').css('cursor','wait');
             },
             success: function(response) {
-                if (response.length > 0) {
-                    response.forEach(function(photo) {
+                if (response && response.total_posts) {
+                    response.photos.forEach(function(photo) {
                         $('.photolist .upsell_block').append(photo);
                     });
-                    offsetHome += 12;  
+                    offsetHome += 12;
+                    console.log(offsetHome);
+                    console.log(response.total_posts);
+                    if (offsetHome >= response.total_posts){
+                        $('.load-more').hide();
+                    }  
                 } else {
                     $('.load-more').hide();
                 }

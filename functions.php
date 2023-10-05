@@ -135,8 +135,13 @@ function load_more_photos() {
         }
     }
 
-    wp_send_json($photos);
-    wp_send_json($total_posts);
+    $response_data = array(
+        'photos' => $photos,
+        'total_posts' => $total_posts,
+    );
+    
+    wp_send_json($response_data);
+
 }
 
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
@@ -203,6 +208,8 @@ function load_all_photos() {
 
     wp_send_json($photos);
     wp_send_json($total_posts);
+
+    
 }
 
 add_action('wp_ajax_load_all_photos', 'load_all_photos');
