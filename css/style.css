@@ -125,6 +125,27 @@ p {
   font-size: 14px;
 }
 
+.main-content {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.the-content h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 32px;
+}
+.the-content p {
+  text-align: justify;
+  line-height: 24px;
+}
+
 /* Styles for the header */
 /* Animations */
 @keyframes fadein {
@@ -726,10 +747,6 @@ select {
   display: block !important;
   margin-top: 10px;
   background-color: white;
-}
-
-select option {
-  background-color: #E00000;
 }
 
 .hero {

@@ -49,16 +49,20 @@
   
 
     $('.lightboxnext').on('click', function() {
-      if (currentImageIndex < lightboxlist.length - 1) {
-        displayImage(currentImageIndex + 1);
+      currentImageIndex++;
+      if (currentImageIndex > lightboxlist.length - 1) {
+        currentImageIndex = 0;
       }
+      displayImage(currentImageIndex + 1);
     });
   
 
     $('.lightboxprev').on('click', function() {
-      if (currentImageIndex > 0) {
-        displayImage(currentImageIndex - 1);
+      currentImageIndex--;
+      if (currentImageIndex < 0) {
+        currentImageIndex = lightboxlist.length -1;
       }
+      displayImage(currentImageIndex);
     });
   
     $('.lightboxclose').on('click', function() {

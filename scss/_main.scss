@@ -99,5 +99,27 @@ p{
     font-size: 14px;
 }
 
+.main-content{
+  max-width: 1440px;
+  margin: 0 auto;
+  @media (max-width: $mobile-breakpoint) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+}
+
+.the-content{
+  h2{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 32px;
+  }
+  p{
+    text-align: justify;
+    line-height: 24px;
+  }
+}
+
 
 
