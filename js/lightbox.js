@@ -53,7 +53,7 @@
       if (currentImageIndex > lightboxlist.length - 1) {
         currentImageIndex = 0;
       }
-      displayImage(currentImageIndex + 1);
+      displayImage(currentImageIndex);
     });
   
 
