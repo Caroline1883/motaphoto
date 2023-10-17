@@ -38,7 +38,7 @@ if ($photo_post->have_posts()) {
 
     <form id="photo-filters">
 
-    <label for="category">Catégories</label>
+    <label for="category" class="labelhome">Catégories</label>
         <select name="category" id="category" aria-label="category">
             <?php
                 $photocats = get_terms('photocat', array('taxonomy' => 'photocat', 'fields' => 'names'));
@@ -51,7 +51,7 @@ if ($photo_post->have_posts()) {
             ?>
         </select>
 
-    <label for="format">Formats</label>
+    <label for="format" class="labelhome">Formats</label>
         <select name="format" id="format" aria-label="format">
             <?php
                $formats = get_terms('format', array('taxonomy' => 'format', 'fields' => 'names'));
@@ -68,7 +68,7 @@ if ($photo_post->have_posts()) {
 
     <form id="photo-order">
 
-    <label for="order">Tri</label>
+    <label for="order" class="labelhome">Tri</label>
         <select name="order" id="order" aria-label="order">
         <label>Tri</label>
             <option value="asc">Trier par</option>
